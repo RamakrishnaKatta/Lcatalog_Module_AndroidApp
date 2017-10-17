@@ -8,14 +8,6 @@ import org.artoolkit.ar.base.rendering.ARRenderer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-import android.util.Log;
-
-import org.artoolkit.ar.base.FPSCounter;
-import org.artoolkit.ar.base.rendering.ARRenderer;
-
-import javax.microedition.khronos.egl.EGLConfig;
-import javax.microedition.khronos.opengles.GL10;
-
 public class ARNativeRenderer extends ARRenderer {
 
     static {

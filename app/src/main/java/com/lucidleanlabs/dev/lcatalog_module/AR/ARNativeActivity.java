@@ -11,24 +11,6 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
-import org.artoolkit.ar.base.ARActivity;
-import org.artoolkit.ar.base.assets.AssetHelper;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.sql.Timestamp;
-
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.Environment;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.Toast;
-
 import com.lucidleanlabs.dev.lcatalog_module.R;
 
 import org.artoolkit.ar.base.ARActivity;

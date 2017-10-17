@@ -13,7 +13,7 @@
         android:layout_height="fill_parent"
         android:orientation="vertical">
 
-        <com.lucidleanlabs.dev.lcatalog.loader3ds.MyGLSurfaceView
+        <com.lucidleanlabs.dev.lcatalog_module.loader3ds.MyGLSurfaceView
             android:id="@+id/glView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

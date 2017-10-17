@@ -13,19 +13,6 @@ import android.view.MenuItem;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.StrictMode;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.MenuItem;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 public class ProductPageActivity extends AppCompatActivity {
 
     private static final String TAG = "ProductPageActivity";

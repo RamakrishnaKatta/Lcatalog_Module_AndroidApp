@@ -145,11 +145,11 @@ public class Fragment_ProductImages extends Fragment {
             }
         });
 
-        Article_ZipFileLocation = Environment.getExternalStorageDirectory() + "/L_CATALOGUE/Models/" + article_name + "/" + article_id + ".zip";
+        Article_ZipFileLocation = Environment.getExternalStorageDirectory() + "/L_CATALOG-MODULE/Models/" + article_name + "/" + article_id + ".zip";
         Log.e(TAG, "ZipFileLocation--" + Article_ZipFileLocation);
-        Article_ExtractLocation = Environment.getExternalStorageDirectory() + "/L_CATALOGUE/Models/" + article_name + "/";
+        Article_ExtractLocation = Environment.getExternalStorageDirectory() + "/L_CATALOG-MODULE/Models/" + article_name + "/";
         Log.e(TAG, "ExtractLocation--" + Article_ExtractLocation);
-        Article_3DSFileLocation = Environment.getExternalStorageDirectory() + "/L_CATALOGUE/Models/" + article_name + "/article_view.3ds";
+        Article_3DSFileLocation = Environment.getExternalStorageDirectory() + "/L_CATALOG-MODULE/Models/" + article_name + "/article_view.3ds";
         Log.e(TAG, "Object3DFileLocation--" + Article_3DSFileLocation);
 
         note = (LinearLayout) view.findViewById(R.id.download_note);
@@ -230,7 +230,7 @@ public class Fragment_ProductImages extends Fragment {
             public void onClick(View v) {
                 Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
-                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "L_CATALOGUE");
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "L_CATALOG-MODULE");
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, "If you want to know more details Click here to visit http://lucidleanlabs.com/ ");
                 startActivity(Intent.createChooser(sharingIntent, "Share via"));
             }
@@ -278,7 +278,7 @@ public class Fragment_ProductImages extends Fragment {
         File folder = null;
         if (state.contains(Environment.MEDIA_MOUNTED)) {
             Log.e(TAG, "Article Name--" + article_name);
-            folder = new File(Environment.getExternalStorageDirectory() + "/L_CATALOGUE/Models/" + article_name);
+            folder = new File(Environment.getExternalStorageDirectory() + "/L_CATALOG-MODULE/Models/" + article_name);
         }
         assert folder != null;
         if (!folder.exists()) {
