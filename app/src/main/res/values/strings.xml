@@ -1,4 +1,13 @@
 <resources>
-    <string name="app_name">LCatalog Module</string>
+    <string name="app_name">Catalog</string>
+    <string name="title_activity_catalog">Catalog</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dummy_address">Chandra Layout, Bangalore- 560072</string>
+    <string name="note_download">NOTE : Please click the download button before you click the 3d view, as it is already been disabled until you download</string>
+    <string name="title_activity_article_3dView">3DView</string>
     <string name="action_settings">Settings</string>
+    <string name="activity_product_page">Product Page</string>
+
 </resources>

@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#004D40</color>
-    <color name="colorPrimaryDark">#00796B</color>
-    <color name="colorAccent">#00796B</color>
+ <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="primary">#004D40</color>
+    <color name="primary_dark">#00796B</color>
+    <color name="primary_darker">#004D40</color>
+    <color name="accent">#FFFFFF</color>
+    <color name="accent_dark">#004D40</color>
+
+    <color name="oil">#89333333</color>
+    <color name="transparent">#20004d40</color>
+    <color name="complete_transparent">#00000000</color>
+
+    <color name="black">#000000</color>
+    <color name="jet">#222222</color>
+    <color name="monsoon">#777777</color>
+    <color name="jumbo">#888888</color>
+    <color name="aluminum">#999999</color>
+    <color name="base">#AAAAAA</color>d
+    <color name="iron">#CCCCCC</color>
+    <color name="white">#FFFFFF</color>
+    <color name="red">#ed0909</color>
+    <color name="maroon">#800000</color>
+
+    <color name="secondary_text">#727272</color>
+    <color name="white_overlay">#F3F3F3</color>
+    <color name="text_background">#53004d40</color>
+    <color name="pattern_dark">#c5007579</color>
 </resources>

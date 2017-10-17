@@ -1,3 +1,12 @@
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
-</resources>
+    <dimen name="margin_5">5dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_3">3dp</dimen>
+    <dimen name="margin_1">1dp</dimen>
+    <dimen name="margin_2">2dp</dimen>
+    <dimen name="margin_6">6dp</dimen>
+    <dimen name="margin_12">12dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="dots_height">30dp</dimen>
+    <dimen name="margin_40">40dp</dimen>
+    <dimen name="margin_15">15dp</dimen></resources>
