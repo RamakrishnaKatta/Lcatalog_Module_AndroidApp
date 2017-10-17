@@ -49,7 +49,7 @@ public class ARNativeActivity extends ARActivity {
 
         try {
             // image naming and path  to include sd card  appending name you choose for file
-            mPath = Environment.getExternalStorageDirectory().toString() + "//L_CATALOGUE/Screenshots";
+            mPath = Environment.getExternalStorageDirectory().toString() + "//L_CATALOG_MOD/Screenshots";
 
             // create bitmap screen capture
             View rootView = getWindow().getDecorView().getRootView();

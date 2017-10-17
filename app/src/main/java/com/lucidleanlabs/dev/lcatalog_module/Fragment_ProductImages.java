@@ -41,7 +41,7 @@ public class Fragment_ProductImages extends Fragment {
     private static String EXTENDED_URL;
 
     LinearLayout note;
-    ImageButton article_share, article_download, article_3d_view, article_augment;
+    ImageButton article_download, article_3d_view, article_augment;
 
     String article_images;
     // article_images is split in to five parts and assigned to each string
@@ -55,6 +55,8 @@ public class Fragment_ProductImages extends Fragment {
     ArrayList<String> slider_images = new ArrayList<>();
     TextView[] dots;
     int page_position = 0;
+    private boolean success = true;
+
 
     String Article_ZipFileLocation, Article_ExtractLocation, Article_3DSFileLocation;
     private boolean zip_downloaded = true;
@@ -69,10 +71,9 @@ public class Fragment_ProductImages extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_product_images, container, false);
 
-        article_share = (ImageButton) view.findViewById(R.id.article_share_icon);
-        article_download = (ImageButton) view.findViewById(R.id.article_download_icon);
-        article_3d_view = (ImageButton) view.findViewById(R.id.article_3dview_icon);
-        article_augment = (ImageButton) view.findViewById(R.id.article_augment_icon);
+        article_download =  view.findViewById(R.id.article_download_icon);
+        article_3d_view =  view.findViewById(R.id.article_3dview_icon);
+        article_augment =  view.findViewById(R.id.article_augment_icon);
 
         article_images = getArguments().getString("article_images");
         article_name = getArguments().getString("article_name");
@@ -102,11 +103,11 @@ public class Fragment_ProductImages extends Fragment {
 
         Collections.addAll(slider_images, Images);
 
-        ArticleViewPager = (ViewPager) view.findViewById(R.id.article_view_pager);
+        ArticleViewPager = view.findViewById(R.id.article_view_pager);
         imagesliderAdapter = new ImageSliderAdapter(getContext(), slider_images);
         ArticleViewPager.setAdapter(imagesliderAdapter);
 
-        Slider_dots = (LinearLayout) view.findViewById(R.id.article_slider_dots);
+        Slider_dots = view.findViewById(R.id.article_slider_dots);
 
         ArticleViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -145,11 +146,11 @@ public class Fragment_ProductImages extends Fragment {
             }
         });
 
-        Article_ZipFileLocation = Environment.getExternalStorageDirectory() + "/L_CATALOG-MODULE/Models/" + article_name + "/" + article_id + ".zip";
+        Article_ZipFileLocation = Environment.getExternalStorageDirectory() + "/L_CATALOG_MOD/Models/" + article_name + "/" + article_id + ".zip";
         Log.e(TAG, "ZipFileLocation--" + Article_ZipFileLocation);
-        Article_ExtractLocation = Environment.getExternalStorageDirectory() + "/L_CATALOG-MODULE/Models/" + article_name + "/";
+        Article_ExtractLocation = Environment.getExternalStorageDirectory() + "/L_CATALOG_MOD/Models/" + article_name + "/";
         Log.e(TAG, "ExtractLocation--" + Article_ExtractLocation);
-        Article_3DSFileLocation = Environment.getExternalStorageDirectory() + "/L_CATALOG-MODULE/Models/" + article_name + "/article_view.3ds";
+        Article_3DSFileLocation = Environment.getExternalStorageDirectory() + "/L_CATALOG_MOD/Models/" + article_name + "/article_view.3ds";
         Log.e(TAG, "Object3DFileLocation--" + Article_3DSFileLocation);
 
         note = (LinearLayout) view.findViewById(R.id.download_note);
@@ -212,6 +213,9 @@ public class Fragment_ProductImages extends Fragment {
             }
         });
 
+        CreateFolderStructure();
+
+
         article_3d_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -222,17 +226,6 @@ public class Fragment_ProductImages extends Fragment {
                     Intent _3d_intent = new Intent(getContext(), Article3dViewActivity.class).putExtras(b3);
                     startActivity(_3d_intent);
                 }
-            }
-        });
-
-        article_share.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-                sharingIntent.setType("text/plain");
-                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "L_CATALOG-MODULE");
-                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, "If you want to know more details Click here to visit http://lucidleanlabs.com/ ");
-                startActivity(Intent.createChooser(sharingIntent, "Share via"));
             }
         });
 
@@ -271,6 +264,46 @@ public class Fragment_ProductImages extends Fragment {
     }
 
 
+    private void CreateFolderStructure() {
+        String root_Path = Environment.getExternalStorageDirectory().toString() + "//L_CATALOGUE";
+        String models_Path = Environment.getExternalStorageDirectory().toString() + "//L_CATALOGUE/Models";
+        String screenshots_Path = Environment.getExternalStorageDirectory().toString() + "//L_CATALOGUE/Screenshots";
+        String cache_Path = Environment.getExternalStorageDirectory().toString() + "//L_CATALOGUE/cache";
+
+        File Root_Folder, Models_Folder, Screenshots_Folder, Cache_Folder;
+
+        if (Environment.getExternalStorageState().contains(Environment.MEDIA_MOUNTED)) {
+            Root_Folder = new File(root_Path);
+            Models_Folder = new File(models_Path);
+            Screenshots_Folder = new File(screenshots_Path);
+            Cache_Folder = new File(cache_Path);
+        } else {
+            Root_Folder = new File(root_Path);
+            Models_Folder = new File(models_Path);
+            Screenshots_Folder = new File(screenshots_Path);
+            Cache_Folder = new File(cache_Path);
+        }
+        if (Root_Folder.exists()) {
+        } else {
+
+            if (!Root_Folder.exists()) {
+                success = Root_Folder.mkdirs();
+            }
+            if (!Models_Folder.exists()) {
+                success = Models_Folder.mkdirs();
+            }
+            if (!Screenshots_Folder.exists()) {
+                success = Screenshots_Folder.mkdirs();
+            }
+            if (!Cache_Folder.exists()) {
+                success = Cache_Folder.mkdirs();
+            }
+
+        }
+
+    }
+
+
     /*creation of directory in external storage */
     private void addModelFolder() throws IOException {
         String state = Environment.getExternalStorageState();
@@ -278,7 +311,7 @@ public class Fragment_ProductImages extends Fragment {
         File folder = null;
         if (state.contains(Environment.MEDIA_MOUNTED)) {
             Log.e(TAG, "Article Name--" + article_name);
-            folder = new File(Environment.getExternalStorageDirectory() + "/L_CATALOG-MODULE/Models/" + article_name);
+            folder = new File(Environment.getExternalStorageDirectory() + "/L_CATALOG_MOD/Models/" + article_name);
         }
         assert folder != null;
         if (!folder.exists()) {

@@ -39,7 +39,7 @@ public class DownloadManager {
         stream.readFully(buffer);
         stream.close();
 
-        DataOutputStream file_out = new DataOutputStream(new FileOutputStream(Environment.getExternalStorageDirectory() + "/L_CATALOGUE/Models/" + Article_Name + "/" + Article_ID + ".zip"));
+        DataOutputStream file_out = new DataOutputStream(new FileOutputStream(Environment.getExternalStorageDirectory() + "/L_CATALOG_MOD/Models/" + Article_Name + "/" + Article_ID + ".zip"));
         file_out.write(buffer);
         file_out.flush();
         file_out.close();

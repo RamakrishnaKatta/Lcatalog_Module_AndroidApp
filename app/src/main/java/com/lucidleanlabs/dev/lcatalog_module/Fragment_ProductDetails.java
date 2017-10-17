@@ -52,19 +52,19 @@ public class Fragment_ProductDetails extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_product_details, container, false);
 
-        article_title = (TextView) view.findViewById(R.id.article_title_text);
-        article_description = (TextView) view.findViewById(R.id.article_description_text);
-        article_old_price = (TextView) view.findViewById(R.id.article_price_value);
-        article_discount = (TextView) view.findViewById(R.id.article_price_discount_value);
-        article_width = (TextView) view.findViewById(R.id.article_width_text);
-        article_height = (TextView) view.findViewById(R.id.article_height_text);
-        article_length = (TextView) view.findViewById(R.id.article_length_text);
-        article_new_price = (TextView) view.findViewById(R.id.article_price_value_new);
+        article_title = view.findViewById(R.id.article_title_text);
+        article_description = view.findViewById(R.id.article_description_text);
+        article_old_price = view.findViewById(R.id.article_price_value);
+        article_discount = view.findViewById(R.id.article_price_discount_value);
+        article_width = view.findViewById(R.id.article_width_text);
+        article_height = view.findViewById(R.id.article_height_text);
+        article_length = view.findViewById(R.id.article_length_text);
+        article_new_price = view.findViewById(R.id.article_price_value_new);
 
-        article_vendor_name = (TextView) view.findViewById(R.id.article_vendor_text);
-        article_vendor_location = (TextView) view.findViewById(R.id.article_vendor_address_text);
+        article_vendor_name = view.findViewById(R.id.article_vendor_text);
+        article_vendor_location = view.findViewById(R.id.article_vendor_address_text);
 
-        article_vendor_logo = (ImageView) view.findViewById(R.id.article_vendor_logo);
+        article_vendor_logo = view.findViewById(R.id.article_vendor_logo);
 
         a_title = getArguments().getString("article_title");
         Log.e(TAG, "--" + a_title);

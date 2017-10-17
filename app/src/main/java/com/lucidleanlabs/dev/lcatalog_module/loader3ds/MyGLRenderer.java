@@ -106,7 +106,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
          * @param model All the 3ds models from the folder in the phone local storage are loaded in this array
          */
 
-        File f = new File(Environment.getExternalStorageDirectory() + "/L_CATALOGUE/Models/" + model_name + "/" + "article_view.3ds");
+        File f = new File(Environment.getExternalStorageDirectory() + "/L_CATALOG_MOD/Models/" + model_name + "/" + "article_view.3ds");
         Log.e(TAG, "User -- " + f);
         InputStream stream = null;
         try {
