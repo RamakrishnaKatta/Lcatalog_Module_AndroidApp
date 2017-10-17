@@ -5,7 +5,7 @@
     android:id="@+id/Article3dviewlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lucidleanlabs.dev.catalog.Article3dViewActivity">
+    tools:context="com.lucidleanlabs.dev.lcatalog_module.Article3dViewActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
