@@ -65,7 +65,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Catalog"
+            android:name=".CatalogActivity"
             android:label="@string/title_activity_catalog"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />

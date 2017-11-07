@@ -10,6 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.lucidleanlabs.dev.lcatalog_module.adapters.ProductPageAdapter;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -129,7 +131,7 @@ public class ProductPageActivity extends AppCompatActivity {
         setResult(RESULT_CANCELED);
         super.onBackPressed();
 
-        Intent intent = new Intent(this, Catalog.class);
+        Intent intent = new Intent(this, CatalogActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 //        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.putExtra("activity", "ProductPage");

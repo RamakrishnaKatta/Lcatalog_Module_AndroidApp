@@ -1,5 +1,6 @@
 package com.lucidleanlabs.dev.lcatalog_module;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Paint;
@@ -46,6 +47,7 @@ public class Fragment_ProductDetails extends Fragment {
     TextView article_vendor_name, article_vendor_location;
     ImageView article_vendor_logo;
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -173,9 +175,7 @@ public class Fragment_ProductDetails extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
 
-        Activity activity;
         if (context instanceof Activity) {
-            activity = (Activity) context;
         }
     }
 

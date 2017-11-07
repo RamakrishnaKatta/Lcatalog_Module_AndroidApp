@@ -1,5 +1,6 @@
 package com.lucidleanlabs.dev.lcatalog_module;
 
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -12,6 +13,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.text.Html;
 import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +23,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lucidleanlabs.dev.lcatalog_module.AR.ARNativeActivity;
+import com.lucidleanlabs.dev.lcatalog_module.Utils.DownloadManager;
+import com.lucidleanlabs.dev.lcatalog_module.Utils.UnzipUtil;
+import com.lucidleanlabs.dev.lcatalog_module.adapters.ImageSliderAdapter;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,7 +36,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Timer;
 import java.util.TimerTask;
-
 
 public class Fragment_ProductImages extends Fragment {
 
@@ -55,7 +59,6 @@ public class Fragment_ProductImages extends Fragment {
     ArrayList<String> slider_images = new ArrayList<>();
     TextView[] dots;
     int page_position = 0;
-    private boolean success = true;
 
 
     String Article_ZipFileLocation, Article_ExtractLocation, Article_3DSFileLocation;
@@ -71,9 +74,9 @@ public class Fragment_ProductImages extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_product_images, container, false);
 
-        article_download =  view.findViewById(R.id.article_download_icon);
-        article_3d_view =  view.findViewById(R.id.article_3dview_icon);
-        article_augment =  view.findViewById(R.id.article_augment_icon);
+        article_download = view.findViewById(R.id.article_download_icon);
+        article_3d_view = view.findViewById(R.id.article_3dview_icon);
+        article_augment = view.findViewById(R.id.article_augment_icon);
 
         article_images = getArguments().getString("article_images");
         article_name = getArguments().getString("article_name");
@@ -103,11 +106,11 @@ public class Fragment_ProductImages extends Fragment {
 
         Collections.addAll(slider_images, Images);
 
-        ArticleViewPager = view.findViewById(R.id.article_view_pager);
+        ArticleViewPager = (ViewPager) view.findViewById(R.id.article_view_pager);
         imagesliderAdapter = new ImageSliderAdapter(getContext(), slider_images);
         ArticleViewPager.setAdapter(imagesliderAdapter);
 
-        Slider_dots = view.findViewById(R.id.article_slider_dots);
+        Slider_dots = (LinearLayout) view.findViewById(R.id.article_slider_dots);
 
         ArticleViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -213,13 +216,10 @@ public class Fragment_ProductImages extends Fragment {
             }
         });
 
-        CreateFolderStructure();
-
-
         article_3d_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (zip_downloaded) {
+                if (zip_downloaded == true) {
 
                     Bundle b3 = new Bundle();
                     b3.putString("article_name", article_name);
@@ -259,48 +259,7 @@ public class Fragment_ProductImages extends Fragment {
             }
         }, 2000, 5000);
 
-
         return view;
-    }
-
-
-    private void CreateFolderStructure() {
-        String root_Path = Environment.getExternalStorageDirectory().toString() + "//L_CATALOGUE";
-        String models_Path = Environment.getExternalStorageDirectory().toString() + "//L_CATALOGUE/Models";
-        String screenshots_Path = Environment.getExternalStorageDirectory().toString() + "//L_CATALOGUE/Screenshots";
-        String cache_Path = Environment.getExternalStorageDirectory().toString() + "//L_CATALOGUE/cache";
-
-        File Root_Folder, Models_Folder, Screenshots_Folder, Cache_Folder;
-
-        if (Environment.getExternalStorageState().contains(Environment.MEDIA_MOUNTED)) {
-            Root_Folder = new File(root_Path);
-            Models_Folder = new File(models_Path);
-            Screenshots_Folder = new File(screenshots_Path);
-            Cache_Folder = new File(cache_Path);
-        } else {
-            Root_Folder = new File(root_Path);
-            Models_Folder = new File(models_Path);
-            Screenshots_Folder = new File(screenshots_Path);
-            Cache_Folder = new File(cache_Path);
-        }
-        if (Root_Folder.exists()) {
-        } else {
-
-            if (!Root_Folder.exists()) {
-                success = Root_Folder.mkdirs();
-            }
-            if (!Models_Folder.exists()) {
-                success = Models_Folder.mkdirs();
-            }
-            if (!Screenshots_Folder.exists()) {
-                success = Screenshots_Folder.mkdirs();
-            }
-            if (!Cache_Folder.exists()) {
-                success = Cache_Folder.mkdirs();
-            }
-
-        }
-
     }
 
 
@@ -319,6 +278,7 @@ public class Fragment_ProductImages extends Fragment {
             Log.e(TAG, "Model Directory is Created --- '" + wasSuccessful + "' Thank You !!");
         }
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
