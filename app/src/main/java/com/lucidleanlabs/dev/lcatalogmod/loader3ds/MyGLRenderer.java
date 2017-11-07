@@ -1,4 +1,4 @@
-package com.lucidleanlabs.dev.lcatalog_module.loader3ds;
+package com.lucidleanlabs.dev.lcatalogmod.loader3ds;
 
 import android.content.Context;
 import android.opengl.GLES20;
@@ -7,7 +7,7 @@ import android.opengl.Matrix;
 import android.os.Environment;
 import android.util.Log;
 
-import com.lucidleanlabs.dev.lcatalog_module.R;
+import com.lucidleanlabs.dev.lcatalogmod.R;
 
 import java.io.File;
 import java.io.FileInputStream;

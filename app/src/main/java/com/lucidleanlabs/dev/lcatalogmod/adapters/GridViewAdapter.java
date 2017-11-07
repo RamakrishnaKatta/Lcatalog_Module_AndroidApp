@@ -1,4 +1,4 @@
-package com.lucidleanlabs.dev.lcatalog_module.adapters;
+package com.lucidleanlabs.dev.lcatalogmod.adapters;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -18,8 +18,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.lucidleanlabs.dev.lcatalog_module.ProductPageActivity;
-import com.lucidleanlabs.dev.lcatalog_module.R;
+import com.lucidleanlabs.dev.lcatalogmod.ProductPageActivity;
+import com.lucidleanlabs.dev.lcatalogmod.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;

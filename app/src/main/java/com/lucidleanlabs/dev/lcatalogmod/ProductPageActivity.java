@@ -1,4 +1,4 @@
-package com.lucidleanlabs.dev.lcatalog_module;
+package com.lucidleanlabs.dev.lcatalogmod;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 
-import com.lucidleanlabs.dev.lcatalog_module.adapters.ProductPageAdapter;
+import com.lucidleanlabs.dev.lcatalogmod.adapters.ProductPageAdapter;
 
 import org.json.JSONException;
 import org.json.JSONObject;

@@ -7,7 +7,7 @@
     #include <android/log.h>
 
     // Utility preprocessor directive so only one change needed if Java class name changes
-    #define JNIFUNCTION_DEMO(sig) Java_com_lucidleanlabs_dev_lcatalog_ar_ARNativeRenderer_##sig
+    #define JNIFUNCTION_DEMO(sig) Java_com_lucidleanlabs_dev_lcatalogmod_AR_ARNativeRenderer_##sig
 
         extern "C" {
             JNIEXPORT void JNICALL JNIFUNCTION_DEMO(demoInitialise(JNIEnv * env, jobject object)) ;
@@ -54,7 +54,6 @@
             const char *model18file = "/storage/emulated/0/L_CATALOG_MOD/cache/Data/models/goldchain.obj";
             const char *model19file = "/storage/emulated/0/L_CATALOG_MOD/cache/Data/models/royaloka_tvset.obj";
             const char *model20file = "/storage/emulated/0/L_CATALOG_MOD/cache/Data/models/norland.obj";
-
 
             //Mapping to pattern 1 - bed sofa.obj
             models[0].patternID = arwAddMarker("single;/storage/emulated/0/L_CATALOG_MOD/cache/Data/patterns/pattern1.patt;80");

@@ -341,7 +341,7 @@ public abstract class ARActivity extends Activity implements CameraEventListener
             public void onPictureTaken(byte[] data, Camera camera) {
                 try {
 
-                    String cPath = Environment.getExternalStorageDirectory() + "/L_CATALOGUE/Screenshots";
+                    String cPath = Environment.getExternalStorageDirectory() + "/L_CATALOG_MOD/Screenshots";
 
                     // convert byte array into bitmap
                     Bitmap loadedImage = null;
@@ -449,7 +449,7 @@ public abstract class ARActivity extends Activity implements CameraEventListener
     @Override
     public void cameraPreviewStarted(int width, int height, int rate, int cameraIndex, boolean cameraIsFrontFacing) {
 
-        if (ARToolKit.getInstance().initialiseAR(width, height, "/storage/emulated/0/L_CATALOGUE/cache/Data/camera_para.dat", cameraIndex, cameraIsFrontFacing)) {
+        if (ARToolKit.getInstance().initialiseAR(width, height, "/storage/emulated/0/L_CATALOG_MOD/cache/Data/camera_para.dat", cameraIndex, cameraIsFrontFacing)) {
             // Expects Data to be already in the cache dir. This can be done with the AssetUnpacker.
 
             progressDialog.setMessage("Another couple of Minutes");

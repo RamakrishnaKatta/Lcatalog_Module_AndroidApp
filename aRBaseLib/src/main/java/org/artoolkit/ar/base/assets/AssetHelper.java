@@ -81,7 +81,7 @@ public class AssetHelper {
             nnfe.printStackTrace();
             return;
         }
-        File cacheFolder = new File(Environment.getExternalStorageDirectory().toString() + "//L_CATALOGUE/cache/" + assetBasePath);
+        File cacheFolder = new File(Environment.getExternalStorageDirectory().toString() + "//L_CATALOG_MOD/cache/" + assetBasePath);
         File cacheIndexFile = new File(cacheFolder, "cacheIndex-" + versionCode + ".txt");
 
         BufferedReader inBuf = null;
@@ -122,7 +122,7 @@ public class AssetHelper {
         if (reCache) {
             deleteRecursive(cacheFolder); // Delete remnant, if any, of cached folder.
 
-            List<AssetFileTransfer> transfers = copyAssetFolder(assetBasePath, Environment.getExternalStorageDirectory().toString() + "//L_CATALOGUE/cache"); // Recreate it.
+            List<AssetFileTransfer> transfers = copyAssetFolder(assetBasePath, Environment.getExternalStorageDirectory().toString() + "//L_CATALOG_MOD/cache"); // Recreate it.
 
             // Now write a new cache index inside the folder.
             BufferedWriter outBuf = null;

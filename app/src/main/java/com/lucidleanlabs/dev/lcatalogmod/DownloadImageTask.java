@@ -1,4 +1,4 @@
-package com.lucidleanlabs.dev.lcatalog_module;
+package com.lucidleanlabs.dev.lcatalogmod;
 
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;

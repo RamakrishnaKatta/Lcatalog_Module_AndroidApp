@@ -1,4 +1,4 @@
-package com.lucidleanlabs.dev.lcatalog_module.adapters;
+package com.lucidleanlabs.dev.lcatalogmod.adapters;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.lucidleanlabs.dev.lcatalog_module.R;
+import com.lucidleanlabs.dev.lcatalogmod.R;
 
 import java.io.InputStream;
 import java.net.URL;

@@ -1,4 +1,4 @@
-package com.lucidleanlabs.dev.lcatalog_module.Utils;
+package com.lucidleanlabs.dev.lcatalogmod.Utils;
 
 import android.os.Environment;
 import android.util.Log;

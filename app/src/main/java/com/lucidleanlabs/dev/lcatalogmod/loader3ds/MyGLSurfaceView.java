@@ -1,4 +1,4 @@
-package com.lucidleanlabs.dev.lcatalog_module.loader3ds;
+package com.lucidleanlabs.dev.lcatalogmod.loader3ds;
 
 import android.content.Context;
 import android.opengl.GLSurfaceView;

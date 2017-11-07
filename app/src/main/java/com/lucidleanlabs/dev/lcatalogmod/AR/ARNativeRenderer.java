@@ -1,4 +1,4 @@
-package com.lucidleanlabs.dev.lcatalog_module.AR;
+package com.lucidleanlabs.dev.lcatalogmod.AR;
 
 import android.util.Log;
 
@@ -57,7 +57,5 @@ public class ARNativeRenderer extends ARRenderer {
         ARNativeRenderer.demoDrawFrame();
 
         if (counter.frame()) Log.i("demo", counter.toString());
-
     }
-
 }

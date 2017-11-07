@@ -1,5 +1,4 @@
-package com.lucidleanlabs.dev.lcatalog_module.AR;
-
+package com.lucidleanlabs.dev.lcatalogmod.AR;
 
 import android.annotation.SuppressLint;
 import android.app.Application;
@@ -19,8 +18,10 @@ public class ARNativeApplication extends Application {
     public void onCreate() {
         super.onCreate();
         sInstance = this;
-//        ((ARNativeApplication) sInstance).initializeInstance();
+        //((ARNativeApplication) sInstance).initializeInstance();
     }
+
+
 
 
 }

@@ -1,4 +1,4 @@
-package com.lucidleanlabs.dev.lcatalog_module;
+package com.lucidleanlabs.dev.lcatalogmod;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -14,8 +14,8 @@ import android.view.View;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
-import com.lucidleanlabs.dev.lcatalog_module.loader3ds.MyGLRenderer;
-import com.lucidleanlabs.dev.lcatalog_module.loader3ds.MyGLSurfaceView;
+import com.lucidleanlabs.dev.lcatalogmod.loader3ds.MyGLRenderer;
+import com.lucidleanlabs.dev.lcatalogmod.loader3ds.MyGLSurfaceView;
 
 
 public class Article3dViewActivity extends AppCompatActivity {

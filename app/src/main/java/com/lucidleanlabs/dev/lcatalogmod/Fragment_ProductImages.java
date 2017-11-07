@@ -1,4 +1,4 @@
-package com.lucidleanlabs.dev.lcatalog_module;
+package com.lucidleanlabs.dev.lcatalogmod;
 
 
 import android.app.Activity;
@@ -13,7 +13,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.text.Html;
 import android.util.Log;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,10 +21,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.lucidleanlabs.dev.lcatalog_module.AR.ARNativeActivity;
-import com.lucidleanlabs.dev.lcatalog_module.Utils.DownloadManager;
-import com.lucidleanlabs.dev.lcatalog_module.Utils.UnzipUtil;
-import com.lucidleanlabs.dev.lcatalog_module.adapters.ImageSliderAdapter;
+import com.lucidleanlabs.dev.lcatalogmod.AR.ARNativeActivity;
+import com.lucidleanlabs.dev.lcatalogmod.Utils.DownloadManager;
+import com.lucidleanlabs.dev.lcatalogmod.Utils.UnzipUtil;
+import com.lucidleanlabs.dev.lcatalogmod.adapters.ImageSliderAdapter;
 
 import org.json.JSONException;
 import org.json.JSONObject;

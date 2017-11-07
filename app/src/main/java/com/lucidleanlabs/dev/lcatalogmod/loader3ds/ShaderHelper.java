@@ -1,4 +1,4 @@
-package com.lucidleanlabs.dev.lcatalog_module.loader3ds;
+package com.lucidleanlabs.dev.lcatalogmod.loader3ds;
 
 import android.opengl.GLES20;
 import android.util.Log;

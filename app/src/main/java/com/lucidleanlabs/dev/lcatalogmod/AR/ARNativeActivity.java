@@ -1,26 +1,16 @@
-package com.lucidleanlabs.dev.lcatalog_module.AR;
+package com.lucidleanlabs.dev.lcatalogmod.AR;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
-import com.lucidleanlabs.dev.lcatalog_module.R;
+import com.lucidleanlabs.dev.lcatalogmod.R;
 
 import org.artoolkit.ar.base.ARActivity;
 import org.artoolkit.ar.base.assets.AssetHelper;
+import org.artoolkit.ar.base.rendering.ARRenderer;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.sql.Timestamp;
+import static com.lucidleanlabs.dev.lcatalogmod.AR.ARNativeApplication.getInstance;
 
-import static com.lucidleanlabs.dev.lcatalog_module.AR.ARNativeApplication.getInstance;
 
 public class ARNativeActivity extends ARActivity {
 
@@ -39,7 +29,7 @@ public class ARNativeActivity extends ARActivity {
     }
 
     @Override
-    protected ARNativeRenderer supplyRenderer() {
+    protected ARRenderer supplyRenderer() {
         return arNativeRenderer;
     }
 
@@ -59,5 +49,4 @@ public class ARNativeActivity extends ARActivity {
         AssetHelper assetHelper = new AssetHelper(getAssets());
         assetHelper.cacheAssetFolder(getInstance(), "Data");
     }
-
 }

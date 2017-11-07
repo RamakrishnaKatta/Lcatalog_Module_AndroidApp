@@ -1,10 +1,11 @@
-package com.lucidleanlabs.dev.lcatalog_module.adapters;
+package com.lucidleanlabs.dev.lcatalogmod.adapters;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -18,18 +19,17 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.lucidleanlabs.dev.lcatalog_module.DownloadImageTask;
-import com.lucidleanlabs.dev.lcatalog_module.ProductPageActivity;
-import com.lucidleanlabs.dev.lcatalog_module.R;
+import com.lucidleanlabs.dev.lcatalogmod.ProductPageActivity;
+import com.lucidleanlabs.dev.lcatalogmod.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class ListViewVerticalAdapter extends RecyclerView.Adapter<ListViewVerticalAdapter.ViewHolder> {
+public class ListViewHorizontalAdapter extends RecyclerView.Adapter<ListViewHorizontalAdapter.ViewHolder> {
 
-    private static final String TAG = "ListViewVerticalAdapter";
+    private static final String TAG = "ListViewHorizontalAdapter";
 
     private Activity activity;
 
@@ -42,15 +42,16 @@ public class ListViewVerticalAdapter extends RecyclerView.Adapter<ListViewVertic
     private ArrayList<String> item_images;
     private ArrayList<String> item_dimensions;
 
-    public ListViewVerticalAdapter(Activity activity,
-                                   ArrayList<String> item_ids,
-                                   ArrayList<String> item_names,
-                                   ArrayList<String> item_descriptions,
-                                   ArrayList<String> item_prices,
-                                   ArrayList<String> item_discounts,
-                                   ArrayList<String> item_vendors,
-                                   ArrayList<String> item_images,
-                                   ArrayList<String> item_dimensions) {
+    @SuppressLint("LongLogTag")
+    public ListViewHorizontalAdapter(Activity activity,
+                                     ArrayList<String> item_ids,
+                                     ArrayList<String> item_names,
+                                     ArrayList<String> item_descriptions,
+                                     ArrayList<String> item_prices,
+                                     ArrayList<String> item_discounts,
+                                     ArrayList<String> item_vendors,
+                                     ArrayList<String> item_images,
+                                     ArrayList<String> item_dimensions) {
 
         this.item_ids = item_ids;
         this.item_names = item_names;
@@ -78,39 +79,44 @@ public class ListViewVerticalAdapter extends RecyclerView.Adapter<ListViewVertic
      */
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView item_name, item_description, item_price, item_discount, item_price_new;
+        private TextView item_name, item_description, item_price, item_discount,  item_price_new;
         private ImageView item_image;
-        private RelativeLayout v_container;
+        private RelativeLayout h_container;
 
         ViewHolder(View view) {
             super(view);
-            v_container = view.findViewById(R.id.v_container);
-            item_image = view.findViewById(R.id.v_item_image);
-            item_name = view.findViewById(R.id.v_item_name);
-            item_description = view.findViewById(R.id.v_item_description);
-            item_price = view.findViewById(R.id.v_item_price);
-            item_discount = view.findViewById(R.id.v_item_discount_value);
-            item_price_new = view.findViewById(R.id.v_item_price_new);
+            h_container =  view.findViewById(R.id.h_container);
+            item_image =  view.findViewById(R.id.h_item_image);
+            item_name =  view.findViewById(R.id.h_item_name);
+            item_description = view.findViewById(R.id.h_item_description);
+            item_price = view.findViewById(R.id.h_item_price);
+            item_discount = view.findViewById(R.id.h_item_discount_value);
+            item_price_new = view.findViewById(R.id.h_item_price_new);
+
+            Typeface custom_font = Typeface.createFromAsset(activity.getAssets(), "fonts/Graduate-Regular.ttf");
+            Typeface custom_font2 = Typeface.createFromAsset(activity.getAssets(), "fonts/Cookie-Regular.ttf");
+            item_name.setTypeface(custom_font);
+            item_description.setTypeface(custom_font2);
         }
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
 
         LayoutInflater inflater = activity.getLayoutInflater();
-        View view = inflater.inflate(R.layout.item_vertical_list, parent, false);
-        //    View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_vertical_list, parent, false);
+        View view = inflater.inflate(R.layout.item_horizontal_list, viewGroup, false);
 
         return new ViewHolder(view);
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"LongLogTag", "SetTextI18n"})
     @Override
-    public void onBindViewHolder(ListViewVerticalAdapter.ViewHolder viewHolder, @SuppressLint("RecyclerView") final int position) {
+    public void onBindViewHolder(ListViewHorizontalAdapter.ViewHolder viewHolder, @SuppressLint("RecyclerView") final int position) {
 
         final Context[] context = new Context[1];
 
         viewHolder.item_image.setImageResource(R.drawable.dummy_icon);
+
         String im1 = null;
         String get_image = item_images.get(position);
         try {
@@ -120,7 +126,9 @@ public class ListViewVerticalAdapter extends RecyclerView.Adapter<ListViewVertic
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Glide.with(activity).load("http://lcatalog.immersionslabs.com:8080" + im1)
+
+
+        Glide.with(activity).load("http://lcatalog.immersionslabs.com:8080"+im1)
                 .placeholder(R.drawable.dummy_icon)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(viewHolder.item_image);
@@ -132,14 +140,14 @@ public class ListViewVerticalAdapter extends RecyclerView.Adapter<ListViewVertic
         String itemNewPrice = Integer.toString(z);
 
         viewHolder.item_name.setText(item_names.get(position));
-        viewHolder.item_description.setText(item_descriptions.get(position) + "...");
+        viewHolder.item_description.setText(item_descriptions.get(position));
         viewHolder.item_price.setText((Html.fromHtml("<strike>" + item_prices.get(position) + "</strike>")));
         viewHolder.item_price.setPaintFlags(viewHolder.item_price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-
-        viewHolder.item_discount.setText(item_discounts.get(position) + "%");
+        viewHolder.item_discount.setText(item_discounts.get(position) + "% OFF");
         viewHolder.item_price_new.setText(itemNewPrice + "/-");
 
-        viewHolder.v_container.setOnClickListener(new View.OnClickListener() {
+
+        viewHolder.h_container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -159,9 +167,9 @@ public class ListViewVerticalAdapter extends RecyclerView.Adapter<ListViewVertic
                 b.putString("article_position", String.valueOf(position));
 
                 intent.putExtras(b);
-
                 context[0].startActivity(intent);
-//                Toast.makeText(activity, "Position: " + position, Toast.LENGTH_SHORT).show();
+
+//                Toast.makeText(activity, "Position clicked: " + position, Toast.LENGTH_SHORT).show();
             }
         });
     }

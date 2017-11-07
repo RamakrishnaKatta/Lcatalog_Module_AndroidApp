@@ -1,4 +1,4 @@
-package com.lucidleanlabs.dev.lcatalog_module;
+package com.lucidleanlabs.dev.lcatalogmod;
 
 import android.net.ConnectivityManager;
 import android.os.Bundle;
@@ -25,9 +25,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.lucidleanlabs.dev.lcatalog_module.adapters.GridViewAdapter;
-import com.lucidleanlabs.dev.lcatalog_module.adapters.ListViewHorizontalAdapter;
-import com.lucidleanlabs.dev.lcatalog_module.adapters.ListViewVerticalAdapter;
+import com.lucidleanlabs.dev.lcatalogmod.adapters.GridViewAdapter;
+import com.lucidleanlabs.dev.lcatalogmod.adapters.ListViewHorizontalAdapter;
+import com.lucidleanlabs.dev.lcatalogmod.adapters.ListViewVerticalAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
