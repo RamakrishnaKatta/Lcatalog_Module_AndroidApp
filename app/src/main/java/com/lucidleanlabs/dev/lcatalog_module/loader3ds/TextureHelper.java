@@ -6,9 +6,8 @@ import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
 
-
-public class TextureHelper {
-    public static int loadTexture(final Context context, final int resourceId) {
+class TextureHelper {
+    static int loadTexture(final Context context, final int resourceId) {
         final int[] textureHandle = new int[1];
 
         GLES20.glGenTextures(1, textureHandle, 0);

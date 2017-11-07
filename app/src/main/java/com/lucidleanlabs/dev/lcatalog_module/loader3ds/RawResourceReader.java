@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class RawResourceReader {
-    public static String readTextFileFromRawResource(final Context context, final int resourceId) {
+class RawResourceReader {
+    static String readTextFileFromRawResource(final Context context, final int resourceId) {
         final InputStream inputStream = context.getResources().openRawResource(resourceId);
         final InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         final BufferedReader bufferedReader = new BufferedReader(inputStreamReader);

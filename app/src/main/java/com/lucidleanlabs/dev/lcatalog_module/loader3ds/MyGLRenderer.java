@@ -17,7 +17,6 @@ import java.io.InputStream;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-
 public class MyGLRenderer implements GLSurfaceView.Renderer {
 
     private final Context mActivityContext;
@@ -48,27 +47,27 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     /**
      * This will be used to pass in the light position.
      */
-    int mLightPosHandle;
+    private int mLightPosHandle;
 
     private Parser3ds[] model;
 
     private int currentObject = 0;
 
     // These still work without volatile, but refreshes are not guaranteed to happen.
-    public volatile float mDeltaX;
-    public volatile float mDeltaY;
+    volatile float mDeltaX;
+    volatile float mDeltaY;
 
-    int mMVPMatrixHandle;
-    int mMVMatrixHandle;
+    private int mMVPMatrixHandle;
+    private int mMVMatrixHandle;
     /**
      * This will be used to pass in model texture coordinate information.
      */
-    int mTextureCoordinateHandle;
-    int mTextureUniformHandle;
+    private int mTextureCoordinateHandle;
+    private int mTextureUniformHandle;
 
     private int mProgramHandle;
-    int mPositionHandle;
-    int mNormalHandle;
+    private int mPositionHandle;
+    private int mNormalHandle;
 
     /**
      * This is a handle to our light point program.

@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-
 public class Parser3ds {
 
     private BufferedInputStream stream;
@@ -35,7 +34,7 @@ public class Parser3ds {
      */
     private final int mTextureCoordinateDataSize = 2;
 
-    public boolean objReady = false;
+    private boolean objReady = false;
 
     /**
      * This is the constructor, when a texture is specified, or no texture is specified, in which case, we use our gray "default_texture"
@@ -43,7 +42,7 @@ public class Parser3ds {
      * @param file    - the 3ds object from File Folder in the internal storage
      * @param context - Main application context (needed to access resources)
      */
-    public Parser3ds(InputStream file, final Context context) {
+    Parser3ds(InputStream file, final Context context) {
         mActivityContext = context;
         stream = new BufferedInputStream(file);
         pos = 0;
@@ -110,7 +109,7 @@ public class Parser3ds {
                 ((b0 & 0xff)));
     }
 
-    public String readString() throws IOException {
+    private String readString() throws IOException {
         StringBuilder sb = new StringBuilder(64);
         byte ch = getByte();
         while (ch != 0) {
@@ -120,7 +119,7 @@ public class Parser3ds {
         return sb.toString();
     }
 
-    public void skip(int i) throws IOException {
+    private void skip(int i) throws IOException {
         int skipped = 0;
         do {
             skipped += stream.skip(i - skipped);
@@ -278,9 +277,9 @@ public class Parser3ds {
      * @param mTextureCoordinateHandle - Texture Coordinate Handle for the shader
      * @param mMVMatrixHandle          - Model View matrix Handle for the shader
      */
-    public void draw(float[][] mvp, int mMVPMatrixHandle,
-                     int mLightPosHandle, float[] mLightPosInEyeSpace, int mPositionHandle,
-                     int mNormalHandle, int mTextureCoordinateHandle, int mMVMatrixHandle) {
+    void draw(float[][] mvp, int mMVPMatrixHandle,
+              int mLightPosHandle, float[] mLightPosInEyeSpace, int mPositionHandle,
+              int mNormalHandle, int mTextureCoordinateHandle, int mMVMatrixHandle) {
 
         //For each object of the 3d model, bind the buffers and draw the elements
         for (Object3ds obj : models) {
@@ -344,7 +343,7 @@ public class Parser3ds {
     /**
      * This function is executed, when the seek bar value is changed.
      */
-    public void changeScale(float val) {
+    void changeScale(float val) {
         scaleFactor = initialScaleFactor + initialScaleFactor * val;
     }
 }

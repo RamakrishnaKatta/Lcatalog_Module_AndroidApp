@@ -1,58 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AR.ARNativeActivity">
 
-    <RelativeLayout
-        android:id="@+id/topLayout"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/arFrameLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center"
+    android:layout_weight="1"
+    android:background="@color/transparent"
+    android:baselineAligned="false"
+    android:orientation="vertical">
 
-        <FrameLayout
-            android:id="@+id/arFrameLayout"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_alignParentTop="true"
-            android:orientation="vertical">
-
-        </FrameLayout>
-
-    </RelativeLayout>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_screenshot"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginBottom="@dimen/margin_20"
-        android:layout_marginRight="@dimen/margin_15"
-        app:backgroundTint="@color/accent_dark"
-        app:fabSize="mini"
-        app:srcCompat="@mipmap/ic_camera" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_camera"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginBottom="@dimen/margin_20"
-        android:layout_marginRight="60dp"
-        app:backgroundTint="@color/accent_dark"
-        app:fabSize="mini"
-        app:srcCompat="@mipmap/ic_flash" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_flash"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginBottom="@dimen/margin_20"
-        android:layout_marginRight="105dp"
-        app:backgroundTint="@color/accent_dark"
-        app:fabSize="mini"
-        app:srcCompat="@mipmap/ic_screenshot" />
-
-</android.support.design.widget.CoordinatorLayout>
+</FrameLayout>

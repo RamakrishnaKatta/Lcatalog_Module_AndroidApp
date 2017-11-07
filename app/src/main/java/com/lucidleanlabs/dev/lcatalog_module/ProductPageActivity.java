@@ -91,12 +91,12 @@ public class ProductPageActivity extends AppCompatActivity {
         Log.e(TAG, "Article Images----" + images);
         Log.e(TAG, "Article Vendor Id----" + article_vendor_id);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.product_tab_layout);
+        TabLayout tabLayout = findViewById(R.id.product_tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("DESIGN"));
         tabLayout.addTab(tabLayout.newTab().setText("OVERVIEW"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.product_pager);
+        final ViewPager viewPager = findViewById(R.id.product_pager);
         final ProductPageAdapter adapter = new ProductPageAdapter(getSupportFragmentManager(), tabLayout.getTabCount(),
                 name, description, oldPrice, discount, newPrice, dimensions, width, height, length, position, id, images, article_vendor_id);
         viewPager.setAdapter(adapter);

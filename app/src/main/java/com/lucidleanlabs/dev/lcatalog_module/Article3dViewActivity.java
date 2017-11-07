@@ -1,6 +1,5 @@
 package com.lucidleanlabs.dev.lcatalog_module;
 
-
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.ConfigurationInfo;
@@ -38,14 +37,14 @@ public class Article3dViewActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_3dview);
+        Toolbar toolbar = findViewById(R.id.toolbar_3dview);
         setSupportActionBar(toolbar);
 
         Bundle b3 = getIntent().getExtras();
         name = (String) b3.getCharSequence("article_name");
         Log.e(TAG, "Name ---- " + name);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_3dView);
+        FloatingActionButton fab = findViewById(R.id.fab_3dView);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,7 +58,7 @@ public class Article3dViewActivity extends AppCompatActivity {
             }
         });
 
-        mGLView = (MyGLSurfaceView) findViewById(R.id.glView);
+        mGLView = findViewById(R.id.glView);
 
         // Check if the system supports OpenGL ES 2.0.
         final ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
@@ -85,7 +84,7 @@ public class Article3dViewActivity extends AppCompatActivity {
         }
 
         //Create a seek bar for scaling
-        scaleBar = (SeekBar) findViewById(R.id.seekbar1);
+        scaleBar = findViewById(R.id.seekbar1);
 
         if (scaleBar != null) {
             //Set the bar's event listener, which will update the scale factor everytime, the value is changed

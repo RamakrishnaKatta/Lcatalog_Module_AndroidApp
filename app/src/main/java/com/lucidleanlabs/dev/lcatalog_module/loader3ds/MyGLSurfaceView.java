@@ -5,7 +5,6 @@ import android.opengl.GLSurfaceView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
-
 public class MyGLSurfaceView extends GLSurfaceView {
     private MyGLRenderer mRenderer;
 
