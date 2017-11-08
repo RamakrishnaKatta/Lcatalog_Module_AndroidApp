@@ -1,5 +1,5 @@
-# Blender MTL File: 'kitchenunit.blend'
-# Material Count: 10
+# Blender MTL File: 'kitchenunituvmapped.blend'
+# Material Count: 9
 
 newmtl Material
 Ns 96.078431
@@ -10,9 +10,20 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd maroonplywood.jpg
+map_Kd maroonpl.jpg
 
 newmtl Material.001
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.695108 0.674172 0.112692
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd yellowpl.jpg
+
+newmtl Material.001_yellowplywood.jpg
 Ns 96.078431
 Ka 1.000000 1.000000 1.000000
 Kd 0.695108 0.674172 0.112692
@@ -32,18 +43,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd steelexhaust.jpg
-
-newmtl Material.002_NONE
-Ns 96.078431
-Ka 1.000000 1.000000 1.000000
-Kd 0.483062 0.483062 0.483062
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.000000
-d 1.000000
-illum 2
-map_Kd steelexhaust.jpg
+map_Kd steelexh.jpg
 
 newmtl Material.003
 Ns 96.078431
@@ -54,7 +54,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd black_marblekt.JPG
+map_Kd black_ma.JPG
 
 newmtl Material.004
 Ns 96.078431
@@ -75,7 +75,18 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd yellowplywood.jpg
+map_Kd yellowpl.jpg
+
+newmtl Material_NONE
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.012369 0.020920
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd maroonpl.jpg
 
 newmtl Material_maroonplywood.jpg
 Ns 96.078431
@@ -87,20 +98,3 @@ Ni 1.000000
 d 1.000000
 illum 2
 map_Kd maroonplywood.jpg
-
-newmtl None
-Ns 0
-Ka 0.000000 0.000000 0.000000
-Kd 0.8 0.8 0.8
-Ks 0.8 0.8 0.8
-d 1
-illum 2
-
-newmtl None_steelexhaust.jpg
-Ns 0
-Ka 0.000000 0.000000 0.000000
-Kd 0.8 0.8 0.8
-Ks 0.8 0.8 0.8
-d 1
-illum 2
-map_Kd steelexhaust.jpg

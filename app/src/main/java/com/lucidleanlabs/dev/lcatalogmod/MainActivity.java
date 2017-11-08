@@ -13,8 +13,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.Button;
 import android.widget.Toast;
+
+import com.lucidleanlabs.dev.lcatalogmod.AR.ARNativeActivity;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private static final int MY_PERMISSIONS_REQUEST = 10;
-    ImageView imageView;
+    Button click, Augment;
     boolean success = true;
 
     @Override
@@ -41,14 +43,24 @@ public class MainActivity extends AppCompatActivity {
 
         RequestPermissions();
 
-        imageView = findViewById(R.id.icon);
-        imageView.setOnClickListener(new View.OnClickListener() {
+        click = findViewById(R.id.catalog);
+        click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, CatalogActivity.class);
                 startActivity(intent);
             }
         });
+
+        Augment = findViewById(R.id.augment);
+        Augment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent  intent = new Intent(MainActivity.this, ARNativeActivity.class);
+                startActivity(intent);
+            }
+        });
+
         CreateFolderStructure();
 
     }

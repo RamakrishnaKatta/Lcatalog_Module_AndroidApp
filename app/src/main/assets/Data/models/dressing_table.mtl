@@ -1,4 +1,4 @@
-# Blender MTL File: 'dressing_tableexp.blend'
+# Blender MTL File: 'dressing_tableUV.blend'
 # Material Count: 4
 
 newmtl Material.001
@@ -37,8 +37,8 @@ map_Kd ij.jpg
 newmtl Material.004
 Ns 96.078431
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.649194 0.649194 0.649194
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
 Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000

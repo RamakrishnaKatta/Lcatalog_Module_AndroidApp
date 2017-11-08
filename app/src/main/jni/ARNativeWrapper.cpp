@@ -44,12 +44,12 @@
             const char *model8file = "/storage/emulated/0/L_CATALOG_MOD/cache/Data/models/wallpaint.obj";
             const char *model9file = "/storage/emulated/0/L_CATALOG_MOD/cache/Data/models/florence_compact.obj";
             const char *model10file = "/storage/emulated/0/L_CATALOG_MOD/cache/Data/models/4seated_dinning_table.obj";
-            const char *model11file = "/storage/emulated/0/L_CATALOG_MOD/cache/Data/models/alba_sheeshamcofee_table.obj";
+            const char *model11file = "/storage/emulated/0/L_CATALOG_MOD/cache/Data/models/alba_sheeshamcoffee_table.obj";
             const char *model12file = "/storage/emulated/0/L_CATALOG_MOD/cache/Data/models/chelsea.obj";
             const char *model13file = "/storage/emulated/0/L_CATALOG_MOD/cache/Data/models/Multiple_Frames_Buddha_Art_Wall_Painting.obj";
             const char *model14file = "/storage/emulated/0/L_CATALOG_MOD/cache/Data/models/floorlamp.obj";
             const char *model15file = "/storage/emulated/0/L_CATALOG_MOD/cache/Data/models/wallpartition.obj";
-            const char *model16file = "/storage/emulated/0/L_CATALOG_MOD/cache/Data/models/otootman.obj";
+            const char *model16file = "/storage/emulated/0/L_CATALOG_MOD/cache/Data/models/ottomanchair.obj";
             const char *model17file = "/storage/emulated/0/L_CATALOG_MOD/cache/Data/models/kitchenunit.obj";
             const char *model18file = "/storage/emulated/0/L_CATALOG_MOD/cache/Data/models/goldchain.obj";
             const char *model19file = "/storage/emulated/0/L_CATALOG_MOD/cache/Data/models/royaloka_tvset.obj";
