@@ -1,5 +1,5 @@
 # Blender MTL File: 'bedsofa.blend'
-# Material Count: 20
+# Material Count: 16
 
 newmtl Material.002
 Ns 96.078431
@@ -10,29 +10,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd ab.jpg
-
-newmtl Material.003
-Ns 96.078431
-Ka 1.000000 1.000000 1.000000
-Kd 0.640000 0.640000 0.640000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.000000
-d 1.000000
-illum 2
-map_Kd ab.jpg
-
-newmtl Material.004
-Ns 96.078431
-Ka 1.000000 1.000000 1.000000
-Kd 0.640000 0.640000 0.640000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.000000
-d 1.000000
-illum 2
-map_Kd ab.jpg
+map_Kd au.jpg
 
 newmtl Material.005
 Ns 96.078431
@@ -43,7 +21,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd ab.jpg
+map_Kd au.jpg
 
 newmtl Material.006
 Ns 96.078431
@@ -54,7 +32,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd ab.jpg
+map_Kd au.jpg
 
 newmtl Material.007
 Ns 96.078431
@@ -65,7 +43,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd ab.jpg
+map_Kd au.jpg
 
 newmtl Material.008
 Ns 96.078431
@@ -76,7 +54,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd ab.jpg
+map_Kd au.jpg
 
 newmtl Material.009
 Ns 96.078431
@@ -87,7 +65,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd ab.jpg
+map_Kd au.jpg
 
 newmtl Material.010
 Ns 96.078431
@@ -120,18 +98,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd ab.jpg
-
-newmtl Material.014
-Ns 96.078431
-Ka 1.000000 1.000000 1.000000
-Kd 0.640000 0.640000 0.640000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.000000
-d 1.000000
-illum 2
-map_Kd ae.jpg
+map_Kd au.jpg
 
 newmtl Material.015
 Ns 96.078431
@@ -142,7 +109,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd ae.jpg
+map_Kd ag.jpg
 
 newmtl Material.016
 Ns 96.078431
@@ -153,18 +120,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd ae.jpg
-
-newmtl Material.017
-Ns 96.078431
-Ka 1.000000 1.000000 1.000000
-Kd 0.640000 0.640000 0.640000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.000000
-d 1.000000
-illum 2
-map_Kd ae.jpg
+map_Kd ag.jpg
 
 newmtl Material.018
 Ns 96.078431
@@ -175,7 +131,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd ae.jpg
+map_Kd ag.jpg
 
 newmtl Material.019
 Ns 96.078431
@@ -186,7 +142,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd ae.jpg
+map_Kd ag.jpg
 
 newmtl Material.020
 Ns 96.078431
@@ -197,7 +153,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd ae.jpg
+map_Kd ag.jpg
 
 newmtl Material.021
 Ns 96.078431
@@ -208,7 +164,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd ae.jpg
+map_Kd ag.jpg
 
 newmtl Material.022
 Ns 96.078431
@@ -219,4 +175,4 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd ae.jpg
+map_Kd ag.jpg

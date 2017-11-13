@@ -1,5 +1,5 @@
 # Blender MTL File: 'kitchenunituvmapped.blend'
-# Material Count: 9
+# Material Count: 6
 
 newmtl Material
 Ns 96.078431
@@ -23,17 +23,6 @@ d 1.000000
 illum 2
 map_Kd yellowpl.jpg
 
-newmtl Material.001_yellowplywood.jpg
-Ns 96.078431
-Ka 1.000000 1.000000 1.000000
-Kd 0.695108 0.674172 0.112692
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.000000
-d 1.000000
-illum 2
-map_Kd yellowplywood.jpg
-
 newmtl Material.002
 Ns 96.078431
 Ka 1.000000 1.000000 1.000000
@@ -43,7 +32,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd steelexh.jpg
+map_Kd ag.jpg
 
 newmtl Material.003
 Ns 96.078431
@@ -76,25 +65,3 @@ Ni 1.000000
 d 1.000000
 illum 2
 map_Kd yellowpl.jpg
-
-newmtl Material_NONE
-Ns 96.078431
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.012369 0.020920
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.000000
-d 1.000000
-illum 2
-map_Kd maroonpl.jpg
-
-newmtl Material_maroonplywood.jpg
-Ns 96.078431
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.012369 0.020920
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.000000
-d 1.000000
-illum 2
-map_Kd maroonplywood.jpg
