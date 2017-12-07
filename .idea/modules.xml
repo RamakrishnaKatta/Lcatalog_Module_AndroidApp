@@ -5,7 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/Lcatalog_Module_AndroidApp.iml" filepath="$PROJECT_DIR$/.idea/Lcatalog_Module_AndroidApp.iml" />
       <module fileurl="file://C:\Android\WorkShop\ARToolKit5-bin-5.3.2-Android\AndroidStudioProjects\Lcatalog_Module_AndroidApp\Lcatalog_Module_AndroidApp.iml" filepath="C:\Android\WorkShop\ARToolKit5-bin-5.3.2-Android\AndroidStudioProjects\Lcatalog_Module_AndroidApp\Lcatalog_Module_AndroidApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/aRBaseLib/aRBaseLib.iml" filepath="$PROJECT_DIR$/aRBaseLib/aRBaseLib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lcatalog/app.iml" filepath="$PROJECT_DIR$/lcatalog/app.iml" />
     </modules>
   </component>
 </project>
