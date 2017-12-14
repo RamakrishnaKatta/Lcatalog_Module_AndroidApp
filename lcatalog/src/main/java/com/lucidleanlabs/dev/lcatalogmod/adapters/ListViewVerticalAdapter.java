@@ -21,6 +21,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.lucidleanlabs.dev.lcatalogmod.ProductPageActivity;
 import com.lucidleanlabs.dev.lcatalogmod.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -40,6 +41,7 @@ public class ListViewVerticalAdapter extends RecyclerView.Adapter<ListViewVertic
     private ArrayList<String> item_vendors;
     private ArrayList<String> item_images;
     private ArrayList<String> item_dimensions;
+    private ArrayList<String> item_3ds;
 
     public ListViewVerticalAdapter(Activity activity,
                                    ArrayList<String> item_ids,
@@ -49,7 +51,8 @@ public class ListViewVerticalAdapter extends RecyclerView.Adapter<ListViewVertic
                                    ArrayList<String> item_discounts,
                                    ArrayList<String> item_vendors,
                                    ArrayList<String> item_images,
-                                   ArrayList<String> item_dimensions) {
+                                   ArrayList<String> item_dimensions,
+                                   ArrayList<String> item_3ds) {
 
         this.item_ids = item_ids;
         this.item_names = item_names;
@@ -59,6 +62,7 @@ public class ListViewVerticalAdapter extends RecyclerView.Adapter<ListViewVertic
         this.item_vendors = item_vendors;
         this.item_images = item_images;
         this.item_dimensions = item_dimensions;
+        this.item_3ds = item_3ds;
 
         Log.e(TAG, "ids----" + item_ids);
         Log.e(TAG, "names----" + item_names);
@@ -68,6 +72,7 @@ public class ListViewVerticalAdapter extends RecyclerView.Adapter<ListViewVertic
         Log.e(TAG, "vendors----" + item_vendors);
         Log.e(TAG, "Images----" + item_images);
         Log.e(TAG, "Dimensions----" + item_dimensions);
+        Log.e(TAG, "ListViewVerticalAdapter: 3ds---" + item_3ds);
 
         this.activity = activity;
     }
@@ -113,17 +118,19 @@ public class ListViewVerticalAdapter extends RecyclerView.Adapter<ListViewVertic
         String im1 = null;
         String get_image = item_images.get(position);
         try {
-            JSONObject images_json = new JSONObject(get_image);
-            im1 = images_json.getString("image1");
-            Log.e(TAG, "image1=====" + im1);
+            JSONArray images_json = new JSONArray(get_image);
+            for (int i = 0; i < images_json.length(); i++) {
+                im1 = images_json.getString(0);
+                Log.e(TAG, "image1=====" + im1);
+            }
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Glide.with(activity).load("http://lcatalog.immersionslabs.com:8080" + im1)
+        Glide.with(activity).load("http://35.154.150.204:4000/upload/images/" + im1)
                 .placeholder(R.drawable.dummy_icon)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(viewHolder.item_image);
-//        new DownloadImageTask(viewHolder.item_image).execute(im1);
 
         Integer x = Integer.parseInt(item_prices.get(position));
         Integer y = Integer.parseInt(item_discounts.get(position));
@@ -131,12 +138,12 @@ public class ListViewVerticalAdapter extends RecyclerView.Adapter<ListViewVertic
         String itemNewPrice = Integer.toString(z);
 
         viewHolder.item_name.setText(item_names.get(position));
-        viewHolder.item_description.setText(item_descriptions.get(position) + "...");
+        viewHolder.item_description.setText(item_descriptions.get(position) );
         viewHolder.item_price.setText((Html.fromHtml("<strike>" + item_prices.get(position) + "</strike>")));
         viewHolder.item_price.setPaintFlags(viewHolder.item_price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
-        viewHolder.item_discount.setText(item_discounts.get(position) + "%");
-        viewHolder.item_price_new.setText(itemNewPrice + "/-");
+        viewHolder.item_discount.setText(item_discounts.get(position));
+        viewHolder.item_price_new.setText(itemNewPrice );
 
         viewHolder.v_container.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,6 +162,7 @@ public class ListViewVerticalAdapter extends RecyclerView.Adapter<ListViewVertic
                 b.putString("article_vendor", item_vendors.get(position));
                 b.putString("article_dimensions", item_dimensions.get(position));
                 b.putString("article_images", item_images.get(position));
+                b.putString("article_3ds", item_3ds.get(position));
                 b.putString("article_position", String.valueOf(position));
 
                 intent.putExtras(b);

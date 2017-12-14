@@ -22,8 +22,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.lucidleanlabs.dev.lcatalogmod.ProductPageActivity;
 import com.lucidleanlabs.dev.lcatalogmod.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -41,6 +41,7 @@ public class ListViewHorizontalAdapter extends RecyclerView.Adapter<ListViewHori
     private ArrayList<String> item_vendors;
     private ArrayList<String> item_images;
     private ArrayList<String> item_dimensions;
+    private ArrayList<String> item_3ds;
 
     @SuppressLint("LongLogTag")
     public ListViewHorizontalAdapter(Activity activity,
@@ -51,7 +52,8 @@ public class ListViewHorizontalAdapter extends RecyclerView.Adapter<ListViewHori
                                      ArrayList<String> item_discounts,
                                      ArrayList<String> item_vendors,
                                      ArrayList<String> item_images,
-                                     ArrayList<String> item_dimensions) {
+                                     ArrayList<String> item_dimensions,
+                                     ArrayList<String> item_3ds) {
 
         this.item_ids = item_ids;
         this.item_names = item_names;
@@ -61,6 +63,7 @@ public class ListViewHorizontalAdapter extends RecyclerView.Adapter<ListViewHori
         this.item_vendors = item_vendors;
         this.item_images = item_images;
         this.item_dimensions = item_dimensions;
+        this.item_3ds = item_3ds;
 
         Log.e(TAG, "ids----" + item_ids);
         Log.e(TAG, "names----" + item_names);
@@ -70,6 +73,7 @@ public class ListViewHorizontalAdapter extends RecyclerView.Adapter<ListViewHori
         Log.e(TAG, "vendors----" + item_vendors);
         Log.e(TAG, "Images----" + item_images);
         Log.e(TAG, "Dimensions----" + item_dimensions);
+        Log.e(TAG, "ListViewHorizontalAdapter: 3ds----" + item_3ds);
 
         this.activity = activity;
     }
@@ -79,15 +83,15 @@ public class ListViewHorizontalAdapter extends RecyclerView.Adapter<ListViewHori
      */
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView item_name, item_description, item_price, item_discount,  item_price_new;
+        private TextView item_name, item_description, item_price, item_discount, item_price_new;
         private ImageView item_image;
         private RelativeLayout h_container;
 
         ViewHolder(View view) {
             super(view);
-            h_container =  view.findViewById(R.id.h_container);
-            item_image =  view.findViewById(R.id.h_item_image);
-            item_name =  view.findViewById(R.id.h_item_name);
+            h_container = view.findViewById(R.id.h_container);
+            item_image = view.findViewById(R.id.h_item_image);
+            item_name = view.findViewById(R.id.h_item_name);
             item_description = view.findViewById(R.id.h_item_description);
             item_price = view.findViewById(R.id.h_item_price);
             item_discount = view.findViewById(R.id.h_item_discount_value);
@@ -109,9 +113,8 @@ public class ListViewHorizontalAdapter extends RecyclerView.Adapter<ListViewHori
         return new ViewHolder(view);
     }
 
-    @SuppressLint({"LongLogTag", "SetTextI18n"})
     @Override
-    public void onBindViewHolder(ListViewHorizontalAdapter.ViewHolder viewHolder, @SuppressLint("RecyclerView") final int position) {
+    public void onBindViewHolder(ListViewHorizontalAdapter.ViewHolder viewHolder, final int position) {
 
         final Context[] context = new Context[1];
 
@@ -120,15 +123,18 @@ public class ListViewHorizontalAdapter extends RecyclerView.Adapter<ListViewHori
         String im1 = null;
         String get_image = item_images.get(position);
         try {
-            JSONObject images_json = new JSONObject(get_image);
-            im1 = images_json.getString("image1");
-            Log.e(TAG, "image1=====" + im1);
+            JSONArray images_json = new JSONArray(get_image);
+            for (int i = 0; i < images_json.length(); i++) {
+                im1 = images_json.getString(0);
+                Log.e(TAG, "image1==" + im1);
+            }
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
 
-        Glide.with(activity).load("http://lcatalog.immersionslabs.com:8080"+im1)
+        Glide.with(activity).load("http://35.154.150.204:4000/upload/images/" + im1)
                 .placeholder(R.drawable.dummy_icon)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(viewHolder.item_image);
@@ -143,8 +149,8 @@ public class ListViewHorizontalAdapter extends RecyclerView.Adapter<ListViewHori
         viewHolder.item_description.setText(item_descriptions.get(position));
         viewHolder.item_price.setText((Html.fromHtml("<strike>" + item_prices.get(position) + "</strike>")));
         viewHolder.item_price.setPaintFlags(viewHolder.item_price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-        viewHolder.item_discount.setText(item_discounts.get(position) + "% OFF");
-        viewHolder.item_price_new.setText(itemNewPrice + "/-");
+        viewHolder.item_discount.setText(item_discounts.get(position));
+        viewHolder.item_price_new.setText(itemNewPrice);
 
 
         viewHolder.h_container.setOnClickListener(new View.OnClickListener() {
@@ -164,12 +170,12 @@ public class ListViewHorizontalAdapter extends RecyclerView.Adapter<ListViewHori
                 b.putString("article_vendor", item_vendors.get(position));
                 b.putString("article_dimensions", item_dimensions.get(position));
                 b.putString("article_images", item_images.get(position));
+                b.putString("article_3ds", item_3ds.get(position));
                 b.putString("article_position", String.valueOf(position));
 
                 intent.putExtras(b);
                 context[0].startActivity(intent);
 
-//                Toast.makeText(activity, "Position clicked: " + position, Toast.LENGTH_SHORT).show();
             }
         });
     }

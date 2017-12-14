@@ -2,9 +2,9 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="2dp"
+    android:layout_margin="@dimen/margin_2"
     android:background="@drawable/background_curves"
-    android:paddingTop="16dp">
+    android:paddingTop="@dimen/margin_16">
 
     <RelativeLayout
         android:id="@+id/v_container"
@@ -14,19 +14,19 @@
 
         <ImageView
             android:id="@+id/v_item_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/dummy_icon" />
+            android:layout_width="@dimen/margin_100"
+            android:layout_height="@dimen/margin_100"
+            android:contentDescription="@string/app_name" />
 
         <TextView
             android:id="@+id/v_item_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/v_item_image"
-            android:paddingLeft="20dp"
-            android:paddingTop="20dp"
-            android:text="@string/app_name"
+            android:layout_toEndOf="@+id/v_item_image"
+            android:paddingEnd="@dimen/margin_0"
+            android:paddingStart="@dimen/margin_20"
+            android:paddingTop="@dimen/margin_20"
+            android:text="@string/catalog_title"
             android:textColor="@color/primary_dark"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -36,11 +36,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/v_item_name"
-            android:layout_toRightOf="@+id/v_item_image"
+            android:layout_toEndOf="@+id/v_item_image"
             android:ellipsize="end"
             android:maxLines="2"
-            android:paddingLeft="20dp"
-            android:text="This is my description."
+            android:paddingEnd="@dimen/margin_0"
+            android:paddingStart="@dimen/margin_20"
+            android:text="@string/catalog_description"
             android:textColor="@color/primary_dark"
             android:textSize="12sp"
             android:textStyle="italic" />
@@ -49,7 +50,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/v_item_description"
-            android:layout_toRightOf="@+id/v_item_image"
+            android:layout_toEndOf="@+id/v_item_image"
             android:gravity="bottom"
             android:orientation="horizontal">
 
@@ -57,21 +58,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:paddingLeft="3dp">
+                android:paddingEnd="@dimen/margin_3"
+                android:paddingStart="@dimen/margin_20">
 
-                <ImageView
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="3dp"
-                    android:src="@drawable/greyrupee" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_3"
+                    android:text="@string/Rs"
+                    android:textColor="@color/red" />
 
                 <TextView
                     android:id="@+id/v_item_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1000"
+                    android:text="@string/original_price"
                     android:textColor="@color/red"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -79,8 +81,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingRight="5dp"
-                    android:text="/-"
+                    android:paddingEnd="@dimen/margin_3"
+                    android:paddingStart="@dimen/margin_3"
+                    android:text="@string/price_Tag"
                     android:textColor="@color/red"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -88,44 +91,65 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:gravity="center">
+                android:gravity="center"
+                android:paddingEnd="@dimen/margin_3"
+                android:paddingStart="@dimen/margin_0">
 
-                <ImageView
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
-                    android:layout_gravity="bottom"
-                    android:layout_marginLeft="5dp"
-                    android:src="@drawable/greyrupee" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_5"
+                    android:text="@string/Rs"
+                    android:textColor="@color/black" />
 
                 <TextView
                     android:id="@+id/v_item_price_new"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:paddingRight="3dp"
-                    android:text="800/-"
-                    android:textColor="@android:color/black"
+                    android:text="@string/discount_price"
+                    android:textColor="@color/black"
                     android:textSize="12sp"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/margin_3"
+                    android:paddingStart="@dimen/margin_0"
+                    android:text="@string/price_Tag"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/black">
 
                 <TextView
                     android:id="@+id/v_item_discount_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity=""
-                    android:background="@color/black"
-                    android:gravity="end"
-                    android:padding="3dp"
-                    android:text=" 20%"
-                    android:textAlignment="center"
+                    android:text="@string/discount_percentage"
+                    android:textColor="@color/red"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_0"
+                    android:text="@string/percentage_symbol"
                     android:textColor="@color/red"
                     android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
+
         </LinearLayout>
 
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>
-

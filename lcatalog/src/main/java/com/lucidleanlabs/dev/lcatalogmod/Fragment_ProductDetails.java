@@ -1,6 +1,5 @@
 package com.lucidleanlabs.dev.lcatalogmod;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Paint;
@@ -34,7 +33,7 @@ public class Fragment_ProductDetails extends Fragment {
 
     private static final String TAG = "Fragment_ProductDetails";
 
-    private static final String REGISTER_URL = "http://lcatalog.immersionslabs.com:8080/lll/web/vendor/by?id=";
+    private static final String REGISTER_URL = "http://35.154.150.204:4000/vendorArticles/by?id=";
     private static String VENDOR_URL = null;
 
     //String Values assigned from the Bundle Arguments
@@ -47,7 +46,6 @@ public class Fragment_ProductDetails extends Fragment {
     TextView article_vendor_name, article_vendor_location;
     ImageView article_vendor_logo;
 
-    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -83,7 +81,7 @@ public class Fragment_ProductDetails extends Fragment {
 
         a_discount = getArguments().getString("article_discount");
         Log.e(TAG, "--" + a_discount);
-        article_discount.setText(a_discount + "% OFF");
+        article_discount.setText(a_discount);
 
         a_new_price = getArguments().getString("article_new_price");
         Log.e(TAG, "--" + a_new_price);
@@ -94,9 +92,9 @@ public class Fragment_ProductDetails extends Fragment {
         a_height = getArguments().getString("article_height");
         a_length = getArguments().getString("article_length");
         Log.e(TAG, "--" + a_width + "--" + a_height + "--" + a_length);
-        article_width.setText(a_width + " in");
-        article_height.setText(a_height + " in");
-        article_length.setText(a_length + " in");
+        article_width.setText(a_width);
+        article_height.setText(a_height);
+        article_length.setText(a_length);
 
         a_vendor_id = getArguments().getString("article_vendor_id");
         Log.e(TAG, "--" + a_vendor_id);

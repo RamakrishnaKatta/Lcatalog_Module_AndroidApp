@@ -14,13 +14,13 @@ import java.net.URLConnection;
 public class DownloadManager {
 
     private String DOWNLOAD_URL;
-    private String Article_Name, Article_ID;
+    private String Article_Name, Article_3ds;
 
-    public DownloadManager(String url, String article_name, String article_id) {
+    public DownloadManager(String url, String article_name, String article_3ds) {
 
         DOWNLOAD_URL = url;
         Article_Name = article_name;
-        Article_ID = article_id;
+        Article_3ds = article_3ds;
         try {
             Download();
         } catch (IOException e) {
@@ -39,7 +39,7 @@ public class DownloadManager {
         stream.readFully(buffer);
         stream.close();
 
-        DataOutputStream file_out = new DataOutputStream(new FileOutputStream(Environment.getExternalStorageDirectory() + "/L_CATALOG_MOD/Models/" + Article_Name + "/" + Article_ID + ".zip"));
+        DataOutputStream file_out = new DataOutputStream(new FileOutputStream(Environment.getExternalStorageDirectory() + "/L_CATALOG_MOD/Models/" + Article_Name + "/" + Article_3ds));
         file_out.write(buffer);
         file_out.flush();
         file_out.close();

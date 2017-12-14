@@ -27,11 +27,13 @@ public class ProductPageActivity extends AppCompatActivity {
 
     String dimensions;
     //Split the dimensions into three parts and assign to width, height and length
-    String width, length, height;
+    String width, depth, height;
 
     String position, name, id, description;
 
     String article_vendor_id;
+
+    String article_3ds;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,7 @@ public class ProductPageActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_article);
+        Toolbar toolbar = findViewById(R.id.toolbar_article);
         setSupportActionBar(toolbar);
 
         if (getSupportActionBar() != null) {
@@ -56,6 +58,7 @@ public class ProductPageActivity extends AppCompatActivity {
         position = (String) b.getCharSequence("article_position");
         id = (String) b.getCharSequence("article_id");
 
+        article_3ds = (String) b.getCharSequence("article_3ds");
         oldPrice = (String) b.getCharSequence("article_price");
         discount = (String) b.getCharSequence("article_discount");
         Integer x = Integer.parseInt(oldPrice);
@@ -68,7 +71,7 @@ public class ProductPageActivity extends AppCompatActivity {
         try {
             JSONObject dimension_json = new JSONObject(dimensions);
             width = dimension_json.getString("width");
-            length = dimension_json.getString("length");
+            depth = dimension_json.getString("depth");
             height = dimension_json.getString("height");
 
         } catch (JSONException e) {
@@ -86,10 +89,11 @@ public class ProductPageActivity extends AppCompatActivity {
         Log.e(TAG, "Article Dimensions----" + dimensions);
         Log.e(TAG, "Article Width----" + width);
         Log.e(TAG, "Article Height----" + height);
-        Log.e(TAG, "Article Length----" + length);
+        Log.e(TAG, "Article Depth----" + depth);
         Log.e(TAG, "Article Position----" + position);
         Log.e(TAG, "Article Images----" + images);
         Log.e(TAG, "Article Vendor Id----" + article_vendor_id);
+        Log.e(TAG, "onCreate: Article 3DS----" + article_3ds);
 
         TabLayout tabLayout = findViewById(R.id.product_tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("DESIGN"));
@@ -98,7 +102,7 @@ public class ProductPageActivity extends AppCompatActivity {
 
         final ViewPager viewPager = findViewById(R.id.product_pager);
         final ProductPageAdapter adapter = new ProductPageAdapter(getSupportFragmentManager(), tabLayout.getTabCount(),
-                name, description, oldPrice, discount, newPrice, dimensions, width, height, length, position, id, images, article_vendor_id);
+                name, description, oldPrice, discount, newPrice, dimensions, width, height, depth, position, id, images, article_vendor_id,article_3ds);
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

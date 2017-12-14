@@ -16,15 +16,26 @@ public class ProductPageAdapter extends FragmentStatePagerAdapter {
 
 
     private String a_name, a_description, a_old_price, a_discount, a_newPrice, a_dimensions,
-            a_width, a_height, a_length, a_position, a_id, a_images, a_vendor_id;
+            a_width, a_height, a_depth, a_position, a_id, a_images, a_vendor_id,a_3ds;
 
     private int mNumOfTabs;
 
-    public ProductPageAdapter(FragmentManager fragmentManager, int tabCount,
-                              String name, String description, String oldPrice,
-                              String discount, String newPrice, String dimensions,
-                              String width, String height, String length,
-                              String position, String id, String images, String article_vendor_id) {
+    public ProductPageAdapter(FragmentManager fragmentManager,
+                              int tabCount,
+                              String name,
+                              String description,
+                              String oldPrice,
+                              String discount,
+                              String newPrice,
+                              String dimensions,
+                              String width,
+                              String height,
+                              String depth,
+                              String position,
+                              String id,
+                              String images,
+                              String article_vendor_id,
+                              String article_3ds) {
         super(fragmentManager);
         this.mNumOfTabs = tabCount;
         this.a_name = name;
@@ -34,14 +45,15 @@ public class ProductPageAdapter extends FragmentStatePagerAdapter {
         this.a_discount = discount;
         this.a_dimensions = dimensions;
         this.a_height = height;
-        this.a_length = length;
+        this.a_depth = depth;
         this.a_width = width;
         this.a_images = images;
         this.a_position = position;
         this.a_id = id;
         this.a_vendor_id = article_vendor_id;
+        this.a_3ds =article_3ds;
 
-        Log.e(TAG, "Acquired Article Details: " + a_name + " ---" + a_dimensions + " ---" + a_description + " ---" + a_newPrice + " ---" + a_id + " ---" + a_position);
+        Log.e(TAG, "Acquired Article Details: " + a_name + " ---" + a_dimensions + " ---" + a_description + " ---" + a_newPrice + " ---" + a_id + " ---" + a_position + "---"+a_3ds);
     }
 
     @Override
@@ -57,6 +69,7 @@ public class ProductPageAdapter extends FragmentStatePagerAdapter {
                 b_tab1.putString("article_images", a_images);
                 b_tab1.putString("article_id", a_id);
                 b_tab1.putString("article_name", a_name);
+                b_tab1.putString("article_3ds",a_3ds);
 
                 Fragment_ProductImages tab1 = new Fragment_ProductImages();
                 tab1.setArguments(b_tab1);
@@ -72,7 +85,7 @@ public class ProductPageAdapter extends FragmentStatePagerAdapter {
                 b_tab2.putString("article_dimensions", a_dimensions);
                 b_tab2.putString("article_height", a_height);
                 b_tab2.putString("article_width", a_width);
-                b_tab2.putString("article_length", a_length);
+                b_tab2.putString("article_length", a_depth);
                 b_tab2.putString("article_position", a_position);
                 b_tab2.putString("article_vendor_id", a_vendor_id);
 

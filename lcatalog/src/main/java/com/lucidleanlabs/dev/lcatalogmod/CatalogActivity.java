@@ -37,9 +37,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 public class CatalogActivity extends AppCompatActivity {
-    private static final String REGISTER_URL = "http://lcatalog.immersionslabs.com:8080/lll/web/article/all?from=0&count=50";
+    private static final String REGISTER_URL = "http://35.154.150.204:4000/vendorArticles";
     private static final String TAG = "CatalogActivity";
-//    from=0&count=10
 
     private ArrayList<String> item_names;
     private ArrayList<String> item_descriptions;
@@ -49,6 +48,7 @@ public class CatalogActivity extends AppCompatActivity {
     private ArrayList<String> item_images;
     private ArrayList<String> item_dimensions;
     private ArrayList<String> item_ids;
+    private ArrayList<String> item_3ds;
 
     GridViewAdapter gridAdapter;
     ListViewVerticalAdapter VerticalAdapter;
@@ -58,14 +58,9 @@ public class CatalogActivity extends AppCompatActivity {
     ProgressBar progressBar;
     GridLayoutManager GridManager;
     LinearLayoutManager HorizontalManager, VerticalManager;
-    //    Boolean loading = false, refreshStatus = false;
     SwipeRefreshLayout refreshLayout;
     FloatingActionButton fab_grid, fab_vertical, fab_horizontal;
     Boolean Loadmore = false;
-//    int to = 0;
-//    int from = 0;
-//    int pagesize = 10;
-//    int pagenumber = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +98,7 @@ public class CatalogActivity extends AppCompatActivity {
         item_images = new ArrayList<>();
         item_dimensions = new ArrayList<>();
         item_ids = new ArrayList<>();
+        item_3ds = new ArrayList<>();
 
         fab_vertical.setSize(1);
         fab_horizontal.setSize(1);
@@ -185,24 +181,25 @@ public class CatalogActivity extends AppCompatActivity {
                     refreshLayout.setRefreshing(false);
                 }
                 try {
-                    JSONArray resp = response.getJSONArray("resp");
+                    JSONArray resp = response.getJSONArray("data");
                     if (!Loadmore) {
                         CatalogView(resp);
                     } else {
 
                         for (int i = 0; i < resp.length(); i++) {
-                            JSONObject obj = null;
+                            JSONObject obj;
                             try {
                                 obj = resp.getJSONObject(i);
 
-                                item_ids.add(obj.getString("id"));
+                                item_ids.add(obj.getString("_id"));
                                 item_names.add(obj.getString("name"));
                                 item_descriptions.add(obj.getString("description"));
                                 item_prices.add(obj.getString("price"));
                                 item_discounts.add(obj.getString("discount"));
-                                item_vendors.add(obj.getString("vendorId"));
-                                item_images.add(obj.getString("images"));
-                                item_dimensions.add(obj.getString("dimension"));
+                                item_vendors.add(obj.getString("vendor_id"));
+                                item_images.add(obj.getString("img"));
+                                item_dimensions.add(obj.getString("dimensions"));
+                                item_3ds.add(obj.getString("view_3d"));
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -294,14 +291,15 @@ public class CatalogActivity extends AppCompatActivity {
             try {
                 obj = g_jsonArray.getJSONObject(i);
 
-                item_ids.add(obj.getString("id"));
+                item_ids.add(obj.getString("_id"));
                 item_names.add(obj.getString("name"));
                 item_descriptions.add(obj.getString("description"));
                 item_prices.add(obj.getString("price"));
                 item_discounts.add(obj.getString("discount"));
-                item_vendors.add(obj.getString("vendorId"));
-                item_images.add(obj.getString("images"));
-                item_dimensions.add(obj.getString("dimension"));
+                item_vendors.add(obj.getString("vendor_id"));
+                item_images.add(obj.getString("img"));
+                item_dimensions.add(obj.getString("dimensions"));
+                item_3ds.add(obj.getString("view_3d"));
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -316,10 +314,11 @@ public class CatalogActivity extends AppCompatActivity {
         Log.e(TAG, "vendors******" + item_vendors);
         Log.e(TAG, "images******" + item_images);
         Log.e(TAG, "dimensions******" + item_dimensions);
+        Log.e(TAG, "CatalogView: 3ds******" + item_3ds);
 
-        gridAdapter = new GridViewAdapter(this, item_ids, item_names, item_descriptions, item_prices, item_discounts, item_vendors, item_images, item_dimensions);
-        horizontalAdapter = new ListViewHorizontalAdapter(this, item_ids, item_names, item_descriptions, item_prices, item_discounts, item_vendors, item_images, item_dimensions);
-        VerticalAdapter = new ListViewVerticalAdapter(this, item_ids, item_names, item_descriptions, item_prices, item_discounts, item_vendors, item_images, item_dimensions);
+        gridAdapter = new GridViewAdapter(this, item_ids, item_names, item_descriptions, item_prices, item_discounts, item_vendors, item_images, item_dimensions, item_3ds);
+        horizontalAdapter = new ListViewHorizontalAdapter(this, item_ids, item_names, item_descriptions, item_prices, item_discounts, item_vendors, item_images, item_dimensions, item_3ds);
+        VerticalAdapter = new ListViewVerticalAdapter(this, item_ids, item_names, item_descriptions, item_prices, item_discounts, item_vendors, item_images, item_dimensions, item_3ds);
 
         if (fab_vertical.getSize() == 1 && fab_horizontal.getSize() == 1 && fab_grid.getSize() == 0) {
             recycler.removeAllViews();

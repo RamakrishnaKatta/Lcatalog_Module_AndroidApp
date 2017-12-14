@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/transparent"
-    tools:context="com.lucidleanlabs.dev.lcatalogmod.Fragment_ProductDetails">
+    tools:context=".Fragment_ProductDetails">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -22,7 +22,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/margin_3"
-                android:text="TITLE : "
+                android:text="@string/product_title"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -32,7 +32,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/margin_3"
-                android:text="please display the text here............"
+                android:text="@string/product_title_name"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 
@@ -40,14 +40,14 @@
                 android:id="@+id/layout_separator2"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/margin_1"
-                android:background="@color/white_overlay" />
+                android:background="@color/white" />
 
             <TextView
                 android:id="@+id/article_description"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/margin_3"
-                android:text="DESCRIPTION :"
+                android:text="@string/product_desc"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -57,7 +57,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/margin_3"
-                android:text="Description of the product will be displayed here and also the the related products "
+                android:text="@string/product_desc_name"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
         </LinearLayout>
@@ -66,7 +66,7 @@
             android:id="@+id/layout_separator3"
             android:layout_width="match_parent"
             android:layout_height="@dimen/margin_1"
-            android:background="@color/white_overlay" />
+            android:background="@color/white" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -83,7 +83,7 @@
                 android:paddingLeft="@dimen/margin_6"
                 android:paddingRight="@dimen/margin_6"
                 android:paddingTop="@dimen/margin_2"
-                android:text="4.3 *"
+                android:text="@string/product_rating"
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -92,8 +92,8 @@
                 android:id="@+id/text_ratings_reviews"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_12"
-                android:text="50 ratings \u0026 15 reviews"
+                android:layout_marginStart="@dimen/margin_12"
+                android:text="@string/product_rating_reviews"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 
@@ -103,7 +103,7 @@
             android:id="@+id/layout_separator4"
             android:layout_width="match_parent"
             android:layout_height="@dimen/margin_1"
-            android:background="@color/white_overlay" />
+            android:background="@color/white" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -122,41 +122,68 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/margin_5"
-                    android:text="ORIGINAL PRICE :"
+                    android:text="@string/original_price_title"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:padding="@dimen/margin_3"
-                    android:src="@drawable/greyrupee" />
+                    android:text="@string/Rs"
+                    android:textColor="@color/white" />
+
 
                 <TextView
                     android:id="@+id/article_price_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingRight="@dimen/margin_20"
-                    android:text="1000"
+                    android:text="@string/original_price"
                     android:textColor="@color/white"
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/article_price_discount_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/margin_20"
+                    android:paddingStart="@dimen/margin_0"
+                    android:text="@string/price_Tag"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:background="@color/black"
-                    android:paddingBottom="@dimen/margin_3"
-                    android:paddingLeft="@dimen/margin_10"
-                    android:paddingRight="@dimen/margin_10"
-                    android:paddingTop="@dimen/margin_3"
-                    android:text="20% OFF"
-                    android:textAlignment="center"
-                    android:textColor="@color/maroon"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:padding="@dimen/margin_5">
+
+                    <TextView
+                        android:id="@+id/article_price_discount_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/discount_percentage"
+                        android:textColor="@color/maroon"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/percentage_symbol"
+                        android:textColor="@color/maroon"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/discount_off"
+                        android:textColor="@color/maroon"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -170,28 +197,38 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/margin_5"
-                    android:text="AFTER DISCOUNT PRICE :"
+                    android:text="@string/discount_price_title"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <ImageView
-                    android:layout_width="@dimen/margin_20"
-                    android:layout_height="@dimen/margin_20"
-                    android:layout_gravity="center"
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:padding="@dimen/margin_3"
-                    android:src="@drawable/greyrupee" />
+                    android:text="@string/Rs"
+                    android:textColor="@color/white" />
+
 
                 <TextView
                     android:id="@+id/article_price_value_new"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingRight="@dimen/margin_20"
-                    android:text="800"
+                    android:text="@string/discount_price"
                     android:textColor="@color/white"
                     android:textColorHint="@color/jet"
                     android:textSize="14sp"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/margin_20"
+                    android:paddingStart="@dimen/margin_0"
+                    android:text="@string/price_Tag"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -201,19 +238,19 @@
             android:id="@+id/layout_separator5"
             android:layout_width="match_parent"
             android:layout_height="@dimen/margin_1"
-            android:background="@color/white_overlay" />
+            android:background="@color/white" />
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_3"
+            android:baselineAligned="false"
             android:gravity="center"
             android:orientation="horizontal"
-            android:weightSum="3"
-            android:baselineAligned="false">
+            android:weightSum="3">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="@dimen/margin_0"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="horizontal">
@@ -223,9 +260,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/margin_3"
-                    android:text="WIDTH :"
+                    android:text="@string/dimen_width"
                     android:textColor="@color/white"
-                    android:textSize="15sp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -233,14 +270,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/margin_3"
-                    android:text="30 in"
+                    android:text="@string/width_value"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/margin_3"
+                    android:text="@string/dimension_value"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="@dimen/margin_0"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="horizontal">
@@ -250,9 +295,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/margin_3"
-                    android:text="LENGTH :"
+                    android:text="@string/dimen_length"
                     android:textColor="@color/white"
-                    android:textSize="15sp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -260,14 +305,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/margin_3"
-                    android:text="25 in"
+                    android:text="@string/length_value"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/margin_3"
+                    android:text="@string/dimension_value"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="@dimen/margin_0"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="horizontal">
@@ -277,20 +331,28 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/margin_3"
-                    android:text="HEIGHT :"
+                    android:text="@string/dimen_height"
                     android:textColor="@color/white"
-                    android:textSize="15sp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/article_height_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:maxLength="200"
                     android:padding="@dimen/margin_3"
-                    android:text="20 in"
+                    android:text="@string/height_value"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/margin_3"
+                    android:text="@string/dimension_value"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
 
             </LinearLayout>
 
@@ -300,7 +362,7 @@
             android:id="@+id/layout_separator6"
             android:layout_width="match_parent"
             android:layout_height="@dimen/margin_1"
-            android:background="@color/white_overlay" />
+            android:background="@color/white" />
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -309,7 +371,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="250dp"
+                android:layout_width="@dimen/margin_250"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
@@ -319,7 +381,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:padding="@dimen/margin_5"
-                    android:text="PROVIDED BY :"
+                    android:text="@string/providedby_vendor"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -333,9 +395,9 @@
                         android:id="@+id/article_vendor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
+                        android:gravity="end"
                         android:padding="@dimen/margin_5"
-                        android:text="      NAME :"
+                        android:text="@string/vendor_title"
                         android:textColor="@color/white"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -345,7 +407,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/margin_5"
-                        android:text="CMR"
+                        android:text="@string/vendor_name"
                         android:textColor="@color/white"
                         android:textSize="12sp"
                         android:textStyle="italic" />
@@ -361,7 +423,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/margin_3"
-                        android:text=" ADDRESS :"
+                        android:text="@string/vendor_address_title"
                         android:textColor="@color/white"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -373,7 +435,7 @@
                         android:padding="@dimen/margin_3"
                         android:text="@string/dummy_address"
                         android:textColor="@color/white"
-                        android:textSize="13sp"
+                        android:textSize="12sp"
                         android:textStyle="italic" />
 
                 </LinearLayout>
@@ -391,6 +453,7 @@
                     android:id="@+id/article_vendor_logo"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
+                    android:contentDescription="@string/app_name"
                     android:scaleType="fitCenter" />
 
             </LinearLayout>

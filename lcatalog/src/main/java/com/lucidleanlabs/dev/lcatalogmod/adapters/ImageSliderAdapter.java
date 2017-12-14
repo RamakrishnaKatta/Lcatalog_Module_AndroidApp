@@ -44,7 +44,7 @@ public class ImageSliderAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = inflater.inflate(R.layout.fragment_product_images, container, false);
-        ImageView images = (ImageView) v.findViewById(R.id.article_image_view);
+        ImageView images = v.findViewById(R.id.article_image_view);
         Bitmap b = download_images(Images.get(position));
         images.setImageBitmap(b);
         container.addView(v);
@@ -57,7 +57,7 @@ public class ImageSliderAdapter extends PagerAdapter {
     }
 
     private Bitmap download_images(String urls) {
-        String urldisplay = "http://lcatalog.immersionslabs.com:8080" + urls;
+        String urldisplay = "http://35.154.150.204:4000/upload/images/" + urls;
         Bitmap mIcon = null;
         try {
 

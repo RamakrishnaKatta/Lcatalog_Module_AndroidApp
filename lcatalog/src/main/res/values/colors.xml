@@ -11,21 +11,14 @@
 
     <color name="oil">#89333333</color>
     <color name="transparent">#20004d40</color>
-    <color name="complete_transparent">#00000000</color>
 
     <color name="black">#000000</color>
     <color name="jet">#222222</color>
     <color name="monsoon">#777777</color>
-    <color name="jumbo">#888888</color>
-    <color name="aluminum">#999999</color>
-    <color name="base">#AAAAAA</color>d
     <color name="iron">#CCCCCC</color>
     <color name="white">#FFFFFF</color>
     <color name="red">#ed0909</color>
     <color name="maroon">#800000</color>
 
-    <color name="secondary_text">#727272</color>
     <color name="white_overlay">#F3F3F3</color>
-    <color name="text_background">#53004d40</color>
-    <color name="pattern_dark">#c5007579</color>
 </resources>

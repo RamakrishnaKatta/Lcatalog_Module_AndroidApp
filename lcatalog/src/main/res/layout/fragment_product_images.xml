@@ -20,6 +20,7 @@
                 android:id="@+id/article_image_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:contentDescription="@string/app_name"
                 android:scaleType="fitCenter"/>
             <!--android:src="@drawable/dummy_icon" />-->
 
@@ -68,7 +69,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                app:srcCompat="@mipmap/ic_augment" />
+                app:srcCompat="@mipmap/ic_augment"
+                android:contentDescription="@string/app_name" />
 
             <ImageButton
                 android:id="@+id/article_3dview_icon"
@@ -77,7 +79,8 @@
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
                 android:visibility="visible"
-                app:srcCompat="@mipmap/ic_3d" />
+                app:srcCompat="@mipmap/ic_3d"
+                android:contentDescription="@string/app_name" />
 
             <ImageButton
                 android:id="@+id/article_download_icon"
@@ -85,7 +88,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                app:srcCompat="@mipmap/ic_download" />
+                app:srcCompat="@mipmap/ic_download"
+                android:contentDescription="@string/app_name" />
 
         </LinearLayout>
 
