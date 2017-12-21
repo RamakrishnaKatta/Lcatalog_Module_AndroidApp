@@ -201,7 +201,7 @@ public class Fragment_ProductImages extends Fragment {
 
                                     zip_3ds_downloaded = true;
 
-                                    Log.e(TAG, "Zip Downloaded ---------- " + zip_3ds_downloaded);
+                                    Log.e(TAG, "Zip Downloaded ---------- " + true);
                                     progressDialog.dismiss();
                                     article_download.setVisibility(View.GONE);
                                     article_3d_view.setEnabled(true);
@@ -211,7 +211,7 @@ public class Fragment_ProductImages extends Fragment {
                                     article_download.setVisibility(View.VISIBLE);
                                     article_3d_view.setEnabled(false);
                                     zip_3ds_downloaded = false;
-                                    Log.e(TAG, "Zip Not Downloaded ---------- " + zip_3ds_downloaded);
+                                    Log.e(TAG, "Zip Not Downloaded ---------- " + false);
                                     e.printStackTrace();
                                     note.setVisibility(View.VISIBLE);
                                 }
@@ -223,7 +223,7 @@ public class Fragment_ProductImages extends Fragment {
         article_3d_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (zip_3ds_downloaded == true) {
+                if (zip_3ds_downloaded) {
 
                     Bundle b3 = new Bundle();
                     b3.putString("article_name", article_name);
@@ -277,7 +277,7 @@ public class Fragment_ProductImages extends Fragment {
         File folder = null;
         if (state.contains(Environment.MEDIA_MOUNTED)) {
             Log.e(TAG, "Article Name--" + article_name);
-            folder = new File(Environment.getExternalStorageDirectory() + "/L_CATALOG/Models/" + article_name);
+            folder = new File(Environment.getExternalStorageDirectory() + "/L_CATALOG_MOD/Models/" + article_name);
         }
         assert folder != null;
         if (!folder.exists()) {
@@ -294,9 +294,7 @@ public class Fragment_ProductImages extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
 
-        Activity activity;
         if (context instanceof Activity) {
-            activity = (Activity) context;
         }
     }
 
