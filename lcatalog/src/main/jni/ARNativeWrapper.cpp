@@ -24,7 +24,7 @@
             GLMmodel *obj;
         } ARModel;
 
-        #define NUM_MODELS 21
+        #define NUM_MODELS 22
         static ARModel models[NUM_MODELS] = {0};
 
         static float lightAmbient[4] = {0.1f, 0.1f, 0.1f, 1.0f};
@@ -54,6 +54,7 @@
             const char *model18file = "/storage/emulated/0/L_CATALOG_MOD/cache/Data/models/goldchain.obj";
             const char *model19file = "/storage/emulated/0/L_CATALOG_MOD/cache/Data/models/royaloka_tvset.obj";
             const char *model20file = "/storage/emulated/0/L_CATALOG_MOD/cache/Data/models/norland.obj";
+            const char *model21file = "/storage/emulated/0/L_CATALOG_MOD/cache/Data/models/window.obj";
 
     //Mapping to pattern 1 - bed sofa.obj
             models[0].patternID = arwAddMarker("single;/storage/emulated/0/L_CATALOG_MOD/cache/Data/patterns/pattern1.patt;80");
@@ -363,7 +364,7 @@
 
             models[20].obj = glmReadOBJ2(model20file, 0, 0); // context 20, don't read textures yet.
                 if (!models[20].obj) {
-                  LOGE("Error loading model from file '%s'.", model19file);
+                  LOGE("Error loading model from file '%s'.", model20file);
                   exit(-1);
                 }
             glmScale(models[20].obj, 15.0f);
@@ -371,6 +372,20 @@
             glmCreateArrays(models[20].obj, GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE );
                     models[20].visible = false;
 
+    //Mapping to pattern 22  - window.obj
+            models[21].patternID = arwAddMarker("single;/storage/emulated/0/L_CATALOG_MOD/cache/Data/patterns/pattern22.patt;80");
+            arwSetMarkerOptionBool(models[21].patternID, ARW_MARKER_OPTION_SQUARE_USE_CONT_POSE_ESTIMATION, false);
+            arwSetMarkerOptionBool(models[21].patternID, ARW_MARKER_OPTION_FILTERED, true);
+
+            models[21].obj = glmReadOBJ2(model21file, 0, 0); // context 21, don't read textures yet.
+                if (!models[21].obj) {
+                  LOGE("Error loading model from file '%s'.", model21file);
+                  exit(-1);
+                }
+            glmScale(models[21].obj, 15.0f);
+            //glmRotate(models[21].obj, 3.14159f / 2.0f, 1.0f, 0.0f, 0.0f);
+            glmCreateArrays(models[21].obj, GLM_SMOOTH | GLM_MATERIAL | GLM_TEXTURE );
+                    models[21].visible = false;
         }
 
     JNIEXPORT void JNICALL JNIFUNCTION_DEMO(demoShutdown(JNIEnv * env, jobject object)) {}
